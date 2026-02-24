@@ -1,0 +1,41 @@
++---------------------------------------------------------------------------------------+
+|                      COUCHE 1 : DÉVELOPPEMENT & CI/CD (Automation)                    |
+|  [ Code source ] --> [ GitHub Actions ] --> [ Docker Registry ]                       |
+|  (Python/YAML)        (Build & Test)         (Images conteneurs)                      |
++---------------------------------------------------------------------------------------+
+          |                                          ^
+          | (Déploiement Manifests)                  | (Relance auto)
+          v                                          |
++---------------------------------------------------------------------------------------+
+|                      COUCHE 2 : ORCHESTRATION MLOPS (Kubeflow)                        |
+|                                                                                       |
+|  +-------------------+        +----------------------------------------------------+  |
+|  |   STOCKAGE S3     |        |   KUBEFLOW PIPELINES (Workflow Orchestration)      |  |
+|  |      MinIO        | <----> |                                                    |  |
+|  | (Data & Artifacts)|        | [1] Ingestion -> [2] Preproc -> [3] Train -> [4] Eval |  |
+|  +-------------------+        +--------------------------|-------------------------+  |
+|           ^                                              |          |                 |
+|           | (Modèle validé)                              |          | (Métadonnées)   |
+|           v                                              v          v                 |
+|  +-------------------+        +----------------------------------------------------+  |
+|  |  MODEL REGISTRY   | <----  |  GATEKEEPING : Si Accuracy > Seuil X % -> DEPLOY   |  |
+|  +-------------------+        +----------------------------------------------------+  |
++---------------------------------------------------------------------------------------+
+          |                                          ^
+          | (Inference Service)                      | (Metrics & Alertas)
+          v                                          |
++-----------------------------------------------------------------------------------------------+
+|                      COUCHE 3 : SERVING & MONITORING (Production)                     	|
+|                                                                                       	|
+|  +-------------------+        +-----------------------+        +-------------------+  ajouter	|
+|  |   MODEL SERVING   |        |      MONITORING       |        |    AUTO-LOOP      |  logs	|
+|  |      KServe       | ---->  | Prometheus + Grafana  | ---->  |    Argo Events    |  menti	|
+|  | (API Rest/gRPC)   |        | (Drift & Performance) |        | (Trigger Retrain) |  claude	|
+|  +-------------------+        +-----------------------+        +-------------------+  	|
++-----------------------------------------------------------------------------------------------+
+          |                                                                  |
+          +--------------------[ SOCLE INFRASTRUCTURE K8S ]------------------+
+          |  - OS: VM Ubuntu 24.04 (8 CPU, 16GB RAM)                         |
+          |  - CNI: Calico (10.244.0.0/16) | Runtime: Containerd              |
+          |  - Mesh: Istio (Gateway + mTLS) | Storage: Persistent Volumes      |
+          +------------------------------------------------------------------+

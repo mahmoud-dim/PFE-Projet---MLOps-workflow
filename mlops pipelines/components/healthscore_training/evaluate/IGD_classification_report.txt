@@ -1,0 +1,15 @@
+===========================================================================
+CLASSIFICATION REPORT - Health Score Classification
+Dataset: IGD
+Model: Random Forest Classifier
+===========================================================================
+
+              precision    recall  f1-score   support
+
+ Optimal (0)       0.87      0.89      0.88        38
+ Dégradé (1)       0.62      0.57      0.59        14
+Critique (2)       0.88      0.88      0.88         8
+
+    accuracy                           0.82        60
+   macro avg       0.79      0.78      0.78        60
+weighted avg       0.81      0.82      0.81        60

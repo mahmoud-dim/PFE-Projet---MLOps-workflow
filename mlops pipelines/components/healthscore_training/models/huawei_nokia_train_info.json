@@ -1,0 +1,38 @@
+{
+  "model_type": "RandomForestClassifier",
+  "n_estimators": 100,
+  "max_depth": 10,
+  "min_samples_split": 5,
+  "random_state": 42,
+  "n_features": 4,
+  "n_samples_train": 480,
+  "feature_names": [
+    "temperature_c",
+    "rx_power_dbm",
+    "bias_current_ua",
+    "supply_voltage_v"
+  ],
+  "feature_importance": [
+    {
+      "feature": "rx_power_dbm",
+      "importance": 0.44508119751882524
+    },
+    {
+      "feature": "bias_current_ua",
+      "importance": 0.41089318754552157
+    },
+    {
+      "feature": "temperature_c",
+      "importance": 0.12396146874033417
+    },
+    {
+      "feature": "supply_voltage_v",
+      "importance": 0.02006414619531906
+    }
+  ],
+  "classes": [
+    0,
+    1,
+    2
+  ]
+}

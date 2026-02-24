@@ -1,0 +1,76 @@
+--------------------------------------------------------------------------- Logique Diagnostic ----------------------------------------------------------------------------------------------
+
+-> HG8145V5 ( Huawei ) & G-2425-A/B ( Nokia ):
+	+ scenario 1: classification ( prediction de la santé): (0: optimal, 1: degrade, 2: critique)
+		features : BiasCurrent, RXPower, temperature 
+		si  BiasCurrent > limite OR RXPower > limite OR temperature > limite = 2 critique 
+		si  BiasCurrent =< limite OR RXPower =< limite OR temperature =< limite = 1 degradé ( 
+		sinon 0 optimaml 
+		Resultat : Health_score = 2 (Critique)
+ 			- DownstreamCurrRate=9000 kbps (<50% MaxRate) → Critique
+ 			- SNRMargin=6 dB (proche limite) → Dégradé
+ 			- Attenuation=35 dB → Optimal
+			- CRCErrors=45 → Dégradé
+
+	+ scenario 2: prediction Multi-casuale: 
+		Utiliser un modèle LLM pour prédire la cause probable d’un Health_Score dégradé ou critique.
+		Causes possibles :
+			Couverture / Zone
+			Saturation / Configuration
+			Perturbation Environnementale
+			Bridage Logiciel
+			Saturation de Zone (Crosstalk)
+			Vieillissement du Matériel (Hardware Aging)
+			Instabilité Électrique (Power Supply Issue)
+			Macrobend / Connecteur Sale (Fibre uniquement)
+		Resultat : Cause probable : 60% Perturbation environnementale, 20% Saturation / Configuration, 10% Vieillissement matériel, 5% Bridage logiciel, 5% Autres
+
+	+ scenario 3: predection proactive/ evolution : 
+		features : BiasCurrent 
+			slope = ( BiasCurrent T5 - BiasCurrent T1) / T5 
+			jours avant depassement : ( BiasCurrent MAXLimite - BiasCurrent T5) / Slope 
+		Resultat : 
+			Slope (tendance baisse BiasCurrent) = -2250.00 kbps/jour
+			Prévision : la CurrRate atteindra le seuil critique (10000.0 kbps) dans 0.44 jours
+
+-> IGD : 
+	+ scenario 1: classification ( prediction de la santé): (0: optimal, 1: degrade, 2: critique)
+		features : DownstreamCurrRate, DownstreamMaxRate, SNRMargin, Attenuation, CRCErrors
+			DownstreamCurrRate < 50% DownstreamMaxRate ou
+			SNRMargin < seuil critique (ex: <6 dB) ou
+			Attenuation > seuil critique (ex: >50 dB) ou
+			CRCErrors très élevé
+		Resultat: meme que le scenario 1 du huawei et nokia : 2 critique 
+
+			DownstreamCurrRate proche de la limite mais pas critique (ex: 60–70% de MaxRate) ou
+			SNRMargin proche de la limite (ex: 6–9 dB) ou
+			Attenuation proche de la limite (ex: 40–50 dB) ou
+			CRCErrors modéré
+		Resultat: 1 degrade 
+
+			sinon 0 optimal 
+
+	+ scenario 2: prediction Multi-casuale: 
+		Utiliser un modèle LLM pour prédire la cause probable d’un Health_Score dégradé ou critique.
+		Causes possibles :
+			Couverture / Zone
+			Saturation / Configuration
+			Perturbation Environnementale
+			Bridage Logiciel
+			Saturation de Zone (Crosstalk)
+			Vieillissement du Matériel (Hardware Aging)
+			Instabilité Électrique (Power Supply Issue)
+			Macrobend / Connecteur Sale (Fibre uniquement)
+		Resultat : Cause probable : 60% Perturbation environnementale, 20% Saturation / Configuration, 10% Vieillissement matériel, 5% Bridage logiciel, 5% Autres
+
+	+ scenario 3: predection proactive/ evolution : ( Time Series avec intervalle confiance)
+		features : SNRMargin
+			slope = ( SNRMargin T5 - SNRMargin T1 ) / T5 
+			jours avant depassement = ( SNRMargin Limite - SNRMargin T5 ) slope 
+		resultat : 
+			slope = - 1,... / jour 
+			jours avant depassement : 
+				➡️ Dépassement du seuil critique prévu dans 1.33 jours
+				➡️ Risque élevé de perturbation environnementale ou saturation de zone
+				➡️ Action recommandée : surveillance proactive / intervention préventive
+			   

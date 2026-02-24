@@ -1,0 +1,104 @@
+mlops-pipeline/
+│
+├── components/                    # Tous tes composants
+│   │
+│   ├── preprocessing/             # Container 1
+│   │   ├── Dockerfile            # Recette pour l'image
+│   │   ├── preprocess.py         # Ton script Python
+│   │   ├── requirements.txt      # Dépendances Python
+│   │   └── .dockerignore         # Fichiers à ignorer
+│   │
+│   ├── training/                  # Container 2
+│   │   ├── Dockerfile
+│   │   ├── train.py
+│   │   ├── requirements.txt
+│   │   └── .dockerignore
+│   │
+│   └── evaluation/                # Container 3
+│       ├── Dockerfile
+│       ├── evaluate.py
+│       ├── requirements.txt
+│       └── .dockerignore
+│
+├── data/                          # Données (pas dans les images!)
+│   ├── raw/
+│   ├── processed/
+│   └── models/
+│
+├── pipelines/                     # Définition des pipelines Kubeflow
+│   └── main_pipeline.py
+│
+├── docker-compose.yml             # Pour tester localement (optionnel)
+└── README.md                      # Documentation
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ml_pipeline/
+│
+├── preprocessing/
+│   ├── Dockerfile               # Dockerfile pour le preprocessing
+│   ├── requirements.txt         # Librairies Python nécessaires (pandas, numpy, etc.)
+│   ├── preprocess_huawei_nokia.py   # Script preprocessing pour Huawei + Nokia
+│   ├── preprocess_igd.py            # Script preprocessing pour IGD
+│   └── data/                     # Optionnel pour stocker des mini-datasets pour test local
+│
+├── training/
+│   ├── Dockerfile               # Dockerfile pour le training
+│   ├── requirements.txt         # Librairies Python nécessaires (sklearn, tensorflow, etc.)
+│   ├── train_huawei_nokia.py    # Script d’entraînement Huawei + Nokia
+│   ├── train_igd.py             # Script d’entraînement IGD
+│   └── models/                  # Sauvegarde des modèles test sur PC
+│
+├── evaluation/
+│   ├── Dockerfile               # Dockerfile pour l’évaluation
+│   ├── requirements.txt         # Librairies Python nécessaires (sklearn, pandas)
+│   ├── evaluate_huawei_nokia.py # Script d’évaluation Huawei + Nokia
+│   ├── evaluate_igd.py          # Script d’évaluation IGD
+│   └── metrics/                 # Sauvegarde des métriques test sur PC
+│
+├── kubeflow_pipeline/
+│   ├── modem_pipeline.py        # Définition du pipeline Kubeflow (ContainerOp)
+│   └── utils.py                 # Fonctions utilitaires (lecture MinIO, logs, etc.)
+│
+├── datasets/
+│   ├── huawei_nokia.csv         # Dataset original (fusionné)
+│   └── igd.csv                  # Dataset IGD
+│
+└── README.md                    # Explications et instructions
+
+
+
+------------------------------------------------------------------------------------------------
+
+ml_pipeline/
+│
+├── components/
+│
+│   ├── preprocessing/
+│   │   ├── preprocess_huawei_nokia.py
+│   │   ├── preprocess_igd.py
+│   │   └── Dockerfile
+│   │
+│   ├── scenario1_training/
+│   │   ├── train_huawei_nokia.py
+│   │   ├── train_igd.py
+│   │   ├── evaluate_huawei_nokia.py
+|   |   |── evaluate_igd
+│   │   └── Dockerfile
+│   │
+│   ├── scenario2_root_cause/
+│   │   ├── llm_inference.py
+│   │   └── Dockerfile
+│   │
+│   ├── scenario3_proactive/
+│   │   ├── pipeline_huawei_nokia.py
+│   |   ├── pipeline_igd.py
+│   │   └── Dockerfile
+│
+├── pipelines/
+│   ├── pipeline_huawei_nokia.py
+│   ├── pipeline_igd.py
+│
+└── datasets/

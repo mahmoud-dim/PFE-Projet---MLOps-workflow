@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------- plan de travail ------------------------------------------------------------------------------------------
+
+1) détails de plan de travail ( présenter l'idée de mon projet ) : 
+	titre : Implementation d'un pipeline MLOps sur Kubernetes avec Kubeflow 
+	description : Le projet vise à industrialiser le cycle de vie du Machine Learning (MLOps) en intégrant Kubeflow et des pratiques CI/CD. L'objectif est d'assurer un déploiement 
+		      continu des modèles tout en implémentant des mécanismes avancés comme le ré-entraînement automatique (autoretraining) basé sur la performance.
+
+	problematique : Comment transformer un processus de Data Science (analyse de paramètres CPE) en un pipeline MLOps industriel, résilient et évolutif sur Kubernetes ? 
+			Comment garantir que les modèles de détection d'anomalies restent performants face à la dérive des données (Model Drift) sans intervention humaine, en automatisant 
+			la boucle complète de l'entraînement au déploiement (CI/CD) ?
+
+2) Fonctionnalités taches : 
+	- tache : 2 solutions:  -> depuis les demandes 
+					tache : Fondations de l'Infrastructure (Setup)
+					description : Audit du cluster Kubernetes, Installation de Kubeflow, Configuration du SDK 
+					
+					tache : Conception du Pipeline ML (Workflow Orchestration)
+					description : Conteneurisation, Définition du Pipeline , Validation du Modèle
+
+						      
+				-> T1.1 - Audit du cluster Kubernetes existant (claude )
+  					• Vérifier ressources disponibles (CPU/GPU, RAM, stockage)
+  					• Identifier les contraintes et besoins en Persistent Volumes
+  					• Documenter l'architecture réseau et les accès
+				-> T1.2 - Installation et configuration de Kubeflow
+  					• Déployer Kubeflow via manifests officiels
+ 					• Configurer la gestion des accès (Dex/Istio)
+  					• Valider l'accès aux composants (Pipelines, Notebooks, KServe)
+
+3) technologies : Kubernetes (K8s), Kubeflow, Docker, MinIO,  Python, Pandas, NumPy, Scikit-learn, XGBoost, TensorFlow/PyTorch (pour LSTM si utilisé), Kubeflow Pipelines SDK (kfp), github action / gitlab ,  Prometheus, Grafana, zabbix , KServe, GenieACS, sonarqube
+
+4) grantt: 

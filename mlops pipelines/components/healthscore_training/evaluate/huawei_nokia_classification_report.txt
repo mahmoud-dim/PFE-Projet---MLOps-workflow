@@ -1,0 +1,15 @@
+===========================================================================
+CLASSIFICATION REPORT - Health Score Classification
+Dataset: Huawei HG8145V5 + Nokia G-2425G-A (GPON)
+Model: Random Forest Classifier
+===========================================================================
+
+              precision    recall  f1-score   support
+
+ Optimal (0)       0.96      0.99      0.97        76
+ Dégradé (1)       0.93      0.90      0.92        30
+Critique (2)       1.00      0.93      0.96        14
+
+    accuracy                           0.96       120
+   macro avg       0.96      0.94      0.95       120
+weighted avg       0.96      0.96      0.96       120

@@ -1,0 +1,201 @@
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           Utilisateur                                    │
+│                   (Externe – VLAN-USER)                                  │
+└───────────────┬─────────────────────────────────────────────────────────┘
+                │ HTTPS 443
+                ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                  Ingress / Istio Gateway                                 │
+│                       (10.10.50.51)                                      │
+└───────────────┬─────────────────────────────────────────────────────────┘
+                │ HTTPS 443
+                ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         Kubeflow UI                                      │
+│        Dashboard | Pipelines UI | Jupyter Notebook                        │
+│                   (VLAN-PODS)                                             │
+└───────┬───────────────┬──────────────────────┬──────────────────────────┘
+        │               │                      │
+        │ TCP 5556      │ HTTP 80               │ HTTP 8080
+        ▼               ▼                      ▼
+┌──────────────┐   ┌──────────────┐     ┌────────────────────┐
+│   Dex OIDC   │   │ AuthService  │     │ Kubeflow Pipelines │
+│              │   │              │     │     Controller     │
+└──────────────┘   └──────────────┘     └──────────┬─────────┘
+                                                     │ HTTP 2746
+                                                     ▼
+                                      ┌─────────────────────────────┐
+                                      │   Argo Workflow Controller   │
+                                      └──────────┬──────────────────┘
+                                                 │
+              ┌──────────────────────────────────┼─────────────────────────────────┐
+              │                                  │                                 │
+              ▼                                  ▼                                 ▼
+     ┌─────────────────┐              ┌─────────────────┐              ┌─────────────────┐
+     │ Preprocessing   │              │   Training      │              │  Evaluation     │
+     │      Pod        │              │      Pod        │              │      Pod        │
+     └────────┬────────┘              └────────┬────────┘              └────────┬────────┘
+              │ S3 9000                          │ S3 9000                          │ S3 9000
+              ▼                                  ▼                                 ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                               MinIO                                     │
+│                 Artifacts | Models | Datasets (PV/PVC)                  │
+└───────────────────────────┬─────────────────────────────────────────────┘
+                            │
+                            │ HTTP 8080
+                            ▼
+                 ┌──────────────────────────────────┐
+                 │        KServe Controller          │
+                 └────────────┬─────────────────────┘
+                              │ HTTPS 6443
+                              ▼
+                 ┌──────────────────────────────────┐
+                 │     Kubernetes API Server         │
+                 └──────────────────────────────────┘
+                              ▲
+                              │
+         ┌────────────────────┴────────────────────┐
+         │                                          │
+┌──────────────────────┐                  ┌────────────────────────┐
+│  Client Application  │                  │     kubelet             │
+│   (VLAN-APP)         │                  │ (Node Communication)   │
+└──────────┬───────────┘                  └──────────┬─────────────┘
+           │ HTTP 80                                      │ HTTPS 10250
+           ▼                                              ▼
+┌──────────────────────────────────┐        ┌────────────────────────┐
+│     Inference Service (KServe)    │        │   Kubernetes Nodes     │
+└──────────────────────────────────┘        └────────────────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    Monitoring & Observability                            │
+│                                                                         │
+│  Prometheus  <── HTTP 9090 ── ML Pods                                    │
+│  Grafana     <── HTTP 3000 ── Prometheus                                 │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    Kubernetes System Services                             │
+│                                                                         │
+│  Pods ── UDP 53 ──> CoreDNS                                              │
+│  Pods ── HTTPS 10250 ──> kubelet                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+1️- Accès utilisateur & interfaces
+Plate-forme source	IP source	VLAN name	IP destination	Port / Protocole	Plate-forme destination
+Utilisateur		Externe		VLAN-USER	10.10.50.51	443 / HTTPS		Kubeflow Dashboard 	
+Utilisateur		Externe		VLAN-USER	10.10.50.51	443 / HTTPS		Jupyter Notebook
+Utilisateur		Externe		VLAN-USER	10.10.50.51	443 / HTTPS		Kubeflow Pipelines UI
+
+2- Kubernetes – Control Plane
+Plate-forme source	IP source	VLAN name	IP destination	Port / Protocole	Plate-forme destination
+kubelet			10.10.50.51	VLAN-K8S	10.10.50.51	6443 / HTTPS		Kubernetes API Server
+Controller Manager	10.10.50.51	VLAN-K8S	127.0.0.1	2379 / HTTPS		etcd
+Scheduler		10.10.50.51	VLAN-K8S	6443		443 / HTTPS		Kubernetes API Server
+
+3- Kubeflow Core Services
+Plate-forme source	IP source	VLAN name	IP destination	Port / Protocole	Plate-forme destination
+Kubeflow Dashboard	Pod CIDR	VLAN-PODS	ClusterIP	80 / HTTP		Kubeflow API
+Kubeflow Pipelines UI	Pod CIDR	VLAN-PODS	ClusterIP	8080 / HTTP		ML Metadata
+Kubeflow Pipelines	Pod CIDR	VLAN-PODS	ClusterIP	2746 / HTTP		Argo Workflow Controller
+
+4️- Pipeline Machine Learning
+Plate-forme source	IP source	VLAN name	IP destination	Port / Protocole	Plate-forme destination
+Preprocessing Pod	Pod CIDR	VLAN-PODS	ClusterIP	9000 / S3		MinIO
+Training Pod		Pod CIDR	VLAN-PODS	ClusterIP	9000 / S3		MinIO
+Evaluation Pod		Pod CIDR	VLAN-PODS	ClusterIP	9000 / S3		MinIO
+Evaluation Pod		Pod CIDR	VLAN-PODS	ClusterIP	8080 / HTTP		Pipeline Controller
+
+5- Model Serving (KServe)
+Plate-forme source	IP source	VLAN name	IP destination	Port / Protocole	Plate-forme destination
+Kubeflow Pipelines	Pod CIDR	VLAN-PODS	ClusterIP	8080 / HTTP		KServe Controller
+KServe			Pod CIDR	VLAN-PODS	10.10.50.51	6443 / HTTPS		Kubernetes API Server
+Client Application	Externe / Interne VLAN-APP	Service IP	80 / HTTP		Inference Service
+
+6- Authentification & Sécurité
+Plate-forme source	IP source	VLAN name	IP destination	Port / Protocole	Plate-forme destination
+Kubeflow UI		Pod CIDR	VLAN-PODS	ClusterIP	5556 / TCP		Dex (OIDC)
+AuthService		Pod CIDR	VLAN-PODS	ClusterIP	80 / HTTP		Kubeflow Services
+
+7- Monitoring & Observabilité
+Plate-forme source	IP source	VLAN name	IP destination	Port / Protocole	Plate-forme destination
+Prometheus		Pod CIDR	VLAN-PODS	Pod CIDR	9090 / HTTP		Pods ML
+Grafana			Pod CIDR	VLAN-PODS	ClusterIP	3000 / HTTP		Prometheus
+
+8- Services système Kubernetes
+Plate-forme source	IP source	VLAN name	IP destination	Port / Protocole	Plate-forme destination
+Pods			Pod CIDR	VLAN-PODS	ClusterIP	53 / UDP		CoreDNS
+Pods			Pod CIDR	VLAN-PODS	Node IP		10250 / HTTPS		kubelet
+
+
+
+
+------------------------------------------------------------- schema visuel ------------------------------------------------------------
+
+┌────────────────────┐
+│    Utilisateur     │
+│  (Navigateur Web)  │
+└─────────┬──────────┘
+          │ F1 : HTTPS 443
+          ▼
+┌────────────────────────────┐
+│        Istio Ingress       │
+│    (kubeflow-gateway)      │
+└─────────┬──────────────────┘
+          │ F2
+          ▼
+┌────────────────────────────┐
+│     Kubeflow Dashboard     │
+│  (UI / Pipelines / Auth)  │
+└──────┬───────────┬────────┘
+       │ F3        │ F4
+       ▼           ▼
+┌─────────────┐   ┌─────────────┐
+│   Dex OIDC  │   │  Pipelines  │
+│ Auth Service│   │   Controller│
+└─────────────┘   └──────┬──────┘
+                          │ F5
+                          ▼
+               ┌─────────────────────┐
+               │   Argo Workflows    │
+               └──────┬──────────────┘
+                      │ F6
+        ┌─────────────┼─────────────┐
+        ▼             ▼             ▼
+┌────────────┐ ┌────────────┐ ┌────────────┐
+│Preprocess  │ │  Training  │ │ Evaluation │
+│    Pod     │ │    Pod     │ │    Pod     │
+└────┬───────┘ └────┬───────┘ └────┬───────┘
+     │ F7           │ F7           │ F7
+     ▼              ▼              ▼
+┌────────────────────────────────────┐
+│              MinIO                 │
+│     (Artifacts / Models / Data)   │
+└────────────────────────────────────┘
+                      │ F8
+                      ▼
+               ┌──────────────────┐
+               │     KServe       │
+               │ Model Serving    │
+               └──────┬───────────┘
+                      │ F9
+                      ▼
+               ┌──────────────────┐
+               │  Client Inference│
+               │  (API Consumer)  │
+               └──────────────────┘
+
+
+Exemple :
+ID 	Flux Source	Destination	Port / Protocole
+F1	Utilisateur	Istio Ingress	443 / HTTPS
+F2	Istio Ingress	Kubeflow UI	80 / HTTP
+F3	Kubeflow UI	Dex		5556 / TCP
+F4	Kubeflow UI	Pipelines API	8080 / HTTP
+F5	Pipelines	Argo		2746 / HTTP
+F6	Argo		Pods ML		interne
+F7	Pods ML		MinIO		9000 / S3
+F8	Pipeline	KServe		8080 / HTTP
+F9	Client		KServe		80 / HTTP

@@ -1,0 +1,73 @@
++ cas usage 1: 
+	-> L'objectif est de transformer GenieACS en un système expert d'investigation.
+		- Problématique : Un client se plaint d'une baisse de débit, mais le support ne sait pas si c'est la box qui chauffe, la fibre qui est pliée, ou un simple bug de 
+		configuration.
+		- Solution : Automatiser l'analyse des paramètres physiques (TR-069) pour classer l'état de santé du CPE et identifier la cause racine (Root Cause) du problème sans 
+		intervention humaine, en respectant les normes constructeurs (Nokia, Huawei, IGD).
+
+	-> Type de Dataset : Séries Temporelles Segmentées: 
+		- Structure : Tu as besoin d'un historique (snapshots à T1, T2, T3...) pour chaque DeviceID.
+		- Segmentation : Le dataset est divisé en 3 groupes (tes ProductClasses) car les features ne se mélangent pas :
+			Groupe Fibre Huawei (HG8145V5)
+			Groupe Fibre Nokia (G-2425G-A)	
+			Groupe Cuivre/ADSL (IGD)
+		- Périodicité : Des relevés réguliers (ex: toutes les 15 ou 30 min) pour observer la dégradation des pentes (température qui monte, signal qui baisse).
+
+	-> Target (La Cible): Classification : Health_Score (0: Optimal, 1: Dégradé, 2: Critique).
+
+	-> KPIs (Indicateurs de succès)Diagnosis Accuracy : 
+		Capacité du modèle à identifier la bonne cause (ex: a-t-il bien vu que c'était la température et pas le signal ?).
+		Bandwidth Efficiency Ratio : (Uniquement pour ADSL) Ratio $\frac{CurrentRate}{MaxRate}$. Plus il est bas, plus l'anomalie est grave.
+		Lead Time (Prédiction) : Temps d'avance moyen entre l'alerte de l'IA et le moment où le paramètre sort réellement de la norme constructeur.
+
+	-> Les 3 scenarios de prediction : 
+		1. Prédiction de la Classe de Santé (Classification)
+			Le but : Prédire si la box est en bonne santé, même si elle n'est pas encore "en panne".
+			Scénario : Une box Nokia (G-2425G-A) fonctionne, mais le client trouve que Netflix rame parfois.
+			Données reçues : RXPower = -26 dBm (limite), Température = 59°C (limite), BiasCurrent = 14000 uA (limite).
+			Logique de l'IA : Individuellement, chaque paramètre est "juste" dans la norme. Mais l'IA prédit que la combinaison de ces trois faiblesses classe la box en "Classe : Dégradé".
+			Résultat : Le système génère une alerte : "Santé fragile : Risque de ralentissement imminent dû à une instabilité globale".
+		2. Prédiction de la Capacité et Diagnostic Multi-causal (Analyse Libre) (Le modèle ne fournit pas une cause unique déterministe, mais un vecteur de probabilités représentant les causes les plus plausibles.)
+			Le but : Prédire le débit théorique optimal (ce que la ligne devrait supporter) et identifier la cause racine de l'écart avec le débit réel en croisant toutes 
+				les variables disponibles.
+			Scénario exemplaire : Un client ADSL (IGD) avec un abonnement de 20 Mbps ne reçoit en réalité que 4 Mbps.
+			Données d'entrée (Features) : * MaxRate (Capacité du port), SNR Margin (Bruit), Attenuation (Distance/Zone).
+				PortMappingNumberOfEntries (Configuration locale).
+				Stats.Total.CRCErrors (Qualité physique/Interférences).
+			Logique de l'IA (Investigation "Libre") : Le modèle ne suit plus une règle fixe. Il analyse la signature de la donnée pour choisir entre plusieurs diagnostics :
+				Diagnostic "Couverture / Zone" : L'IA détecte une Attenuation très élevée (ex: 50 dB). Elle conclut que la faiblesse du débit est liée à la physique de la zone (maison trop éloignée du central). Le problème est géographique.
+				Diagnostic "Saturation / Configuration" : L'IA voit une Attenuation faible (ligne courte) mais un nombre de PortMapping ou de HostEntries anormalement élevé. Elle conclut que le débit est étranglé par une surcharge de la configuration locale (trop de services ou d'appareils actifs sur la box).
+				Diagnostic "Perturbation Environnementale" : L'IA observe un SNR instable et beaucoup de CRCErrors. Elle diagnostique un bruit électromagnétique sur la ligne (câble endommagé ou environnement bruyant).
+				Diagnostic "Bridage Logiciel" : Si tous les indicateurs physiques (Zone, Bruit) et locaux (Ports) sont parfaits, l'IA déduit alors une anomalie de profil (erreur de configuration réseau).
+				La Saturation de Zone (Crosstalk / Diaphonie): C'est le cas où "trop de box dans la même zone" perturbent le signal.
+					Signe pour l'IA (ADSL) : L'atténuation est correcte (distance moyenne), mais le SNR Margin chute brusquement aux heures de pointe (le soir quand tout le monde allume sa box).
+					Ce que l'IA prédit : "Saturation de la boucle locale par interférence (Crosstalk)". Ce n'est pas la faute de la box du client, c'est le voisinage.
+				Le Vieillissement du Matériel (Hardware Aging)
+					Avant qu'une box ne tombe en panne, ses composants "fatiguent".
+					Signe pour l'IA (Fibre) : Le RXPower (signal reçu) est parfait, mais le BiasCurrent (courant du laser) est anormalement élevé. Cela signifie que la box doit "pousser" plus de courant pour que le laser fonctionne.
+					Ce que l'IA prédit : "Fatigue prématurée du composant optique". Recommandation : changement préventif de la box.
+				L'Instabilité Électrique (Power Supply Issue)
+					Parfois, le problème ne vient pas de la ligne internet, mais de la prise électrique du client.
+					Signe pour l'IA (Fibre & ADSL) : Le SupplyVoltage fluctue ou descend en dessous des normes constructeurs, ce qui provoque des reboots ou des pertes de paquets (CRC Errors).
+					Ce que l'IA prédit : "Instabilité de l'alimentation électrique locale". Solution : changer le bloc d'alimentation ou vérifier l'installation électrique.
+				Le "Macrobend" ou Connecteur Sale (Fibre uniquement)
+					C'est un problème physique très courant en zone fibre.
+					Signe pour l'IA : Le RXPower est très bas (ex: -28 dBm) alors que la température et le voltage sont parfaits.
+					Ce que l'IA prédit : "Obstruction physique du signal". (La fibre est probablement trop pliée derrière le meuble ou le connecteur est poussiéreux).				
+			Résultat : L'IA fournit un score de probabilité pour chaque cause. Exemple de sortie : "Cause probable : 85% Couverture de Zone, 15% Configuration".
+
+		3. Prédiction Proactive / Évolution (Série Temporelle)
+			Le but : Prédire quand un paramètre va sortir de la norme.
+			Scénario : Une box Huawei (HG8145V5) dont le laser commence à fatiguer.
+			Données (Historique) : * Lundi : BiasCurrent = 8000 uA.
+						 Mardi : BiasCurrent = 10000 uA.
+						 Mercredi : BiasCurrent = 12500 uA. (Norme max = 15000 uA).
+			Logique de l'IA : Le modèle calcule la pente d'augmentation (le "trend").
+			Résultat : L'IA prédit : "Alerte proactive : Le laser sera hors-norme (Critique) dans 48 heures". Cela permet de changer la box avant que le client ne s'aperçoive de quoi que ce soit.
+
+	-> modèles a utiliser: modele machine learning supervisé ( random forest, xGBoost) metriques: F1-score 
+	->		       random forest , metriques: MAE 
+	->		       LSTM, metriques: Lead Time 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,45 @@
++ Cas de usage 1: Détection d'Anomalies (Health Score)
+	-> objectif: Identifier automatiquement les box qui ont un comportement anormal (outliers) par rapport au reste du parc.
+	-> Type de dataset: Multi-CPE (Transversal): Tu regroupes les données des 13 CPE à un instant T. L'idée est de comparer les box entre elles pour voir laquelle dévie de la "normale".
+	-> Features (Données à extraire): 
+		DeviceID.ProductClass: (Pour grouper par modèle).
+		InternetGatewayDevice.DeviceInfo.UpTime: (Indicateur de stabilité).
+		InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.1.Stats.EthernetBytesReceived: (Volume de trafic).
+		InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.1.Stats.EthernetBytesSent: envoyés par la box vers Internet (Upload) via la connexion PPP
+		InternetGatewayDevice.DeviceInfo.SoftwareVersion: (Version du firmware).
+	-> Target (Cible) : Score d'Anomalie (0 à 1). C'est un modèle non-supervisé (ex: Isolation Forest) qui génère lui-même ce score.
+	-> KPIs :
+		Taux de Faux Positifs (FPR) : Pour ne pas alerter le support inutilement.
+		Précision : Pourcentage d'anomalies détectées qui correspondent à un vrai problème
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Cas de usage 2: Prédiction de Panne / Reboot
+	-> Objectif : Anticiper un redémarrage ou une perte de synchronisation avant que l'utilisateur ne s'en aperçoive.
+	-> Type de dataset : Série Temporelle (Historique). Tu as besoin de plusieurs relevés dans le temps pour le même CPE. On regarde la "pente" de dégradation.
+	-> Features (Données à extraire) :
+		InternetGatewayDevice.X_ALU_OntOpticalParam.RXPower (Puissance optique RXPower):
+			InternetGatewayDevice.X_ALU_OntOpticalParam.RXPower : Nokia 
+			InternetGatewayDevice.X_HW_PonQualityMonitor: Huawei
+		InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.1.Stats.EthernetErrorsReceived (erreurs Ethernet).
+		InternetGatewayDevice.WANDevice.1.WANConnectionDevice.1.WANPPPConnection.1.Stats.EthernetErrorsSent (erreurs Ethernet).
+
+		InternetGatewayDevice.WANDevice.1.WANDSLInterfaceConfig.Stats.Total.ErrorsSent (Accumulation d'erreurs).
+	-> Target (Cible) : Binaire (1 ou 0). 1 = "La box va rebooter dans les 12h", 0 = "Stable".
+	-> KPIs :
+		Recall (Rappel) : Capacité à détecter le maximum de pannes réelles.
+		Lead Time : Combien de temps à l'avance le modèle peut-il prévenir (ex: 2 heures avant).
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Cas de usage 3: Optimisation Wi-Fi
+	-> objectif: Choisir dynamiquement le meilleur canal Wi-Fi pour réduire les interférences.
+	-> Type de dataset : serie-temporelle de Multi-CPE. On analyse l'état actuel de l'environnement Wi-Fi d'une box précise.
+	-> Features (Données à extraire) :
+		InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.Channel (Canal actuel).
+		InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.TotalAssociations (Nombre d'appareils connectés).
+		InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.Stats.ErrorsReceived (Interférences détectées).
+	-> Target (Cible) : Canal Optimal (Classe). Le modèle recommande le canal (1, 6, 11, etc.) qui minimisera les erreurs.
+	-> KPIs :
+		Réduction du taux d'erreur : Comparaison des erreurs avant/après changement.
+		Score de Qualité Wi-Fi : Amélioration globale du débit ressenti.
