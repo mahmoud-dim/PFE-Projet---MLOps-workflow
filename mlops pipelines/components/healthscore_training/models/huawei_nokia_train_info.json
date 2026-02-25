@@ -1,8 +1,9 @@
 {
   "model_type": "RandomForestClassifier",
   "n_estimators": 100,
-  "max_depth": 10,
-  "min_samples_split": 5,
+  "max_depth": 7,
+  "min_samples_split": 10,
+  "class_weight": "balanced",
   "random_state": 42,
   "n_features": 4,
   "n_samples_train": 480,
@@ -15,19 +16,19 @@
   "feature_importance": [
     {
       "feature": "rx_power_dbm",
-      "importance": 0.44508119751882524
+      "importance": 0.49193601342116805
     },
     {
       "feature": "bias_current_ua",
-      "importance": 0.41089318754552157
+      "importance": 0.3330317610268045
     },
     {
       "feature": "temperature_c",
-      "importance": 0.12396146874033417
+      "importance": 0.160207694071208
     },
     {
       "feature": "supply_voltage_v",
-      "importance": 0.02006414619531906
+      "importance": 0.014824531480819445
     }
   ],
   "classes": [

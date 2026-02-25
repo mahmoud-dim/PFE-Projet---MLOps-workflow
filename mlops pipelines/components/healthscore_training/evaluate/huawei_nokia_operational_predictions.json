@@ -1,0 +1,2642 @@
+[
+  {
+    "device_id": "NOKIA_BOX_263",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_147",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_019",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.081,
+        "degraded": 0.919,
+        "critical": 0.0
+      },
+      "confidence": 0.919
+    },
+    "health_metrics": {
+      "health_score": 0.541,
+      "risk_score": 0.459,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_275",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_073",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.301,
+        "critical": 0.698
+      },
+      "confidence": 0.698
+    },
+    "health_metrics": {
+      "health_score": 0.152,
+      "risk_score": 0.848,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 1,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_080",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.986,
+        "critical": 0.013
+      },
+      "confidence": 0.986
+    },
+    "health_metrics": {
+      "health_score": 0.494,
+      "risk_score": 0.506,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_038",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_088",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_093",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_203",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_042",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_126",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.996,
+        "degraded": 0.004,
+        "critical": 0.0
+      },
+      "confidence": 0.996
+    },
+    "health_metrics": {
+      "health_score": 0.998,
+      "risk_score": 0.002,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_179",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.57,
+        "degraded": 0.43,
+        "critical": 0.0
+      },
+      "confidence": 0.57
+    },
+    "health_metrics": {
+      "health_score": 0.785,
+      "risk_score": 0.215,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_148",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_147",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_110",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_066",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.972,
+        "degraded": 0.028,
+        "critical": 0.0
+      },
+      "confidence": 0.972
+    },
+    "health_metrics": {
+      "health_score": 0.986,
+      "risk_score": 0.014,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_041",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.995,
+        "critical": 0.005
+      },
+      "confidence": 0.995
+    },
+    "health_metrics": {
+      "health_score": 0.498,
+      "risk_score": 0.502,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_270",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_225",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.999,
+        "critical": 0.0
+      },
+      "confidence": 0.999
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_006",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_170",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.999,
+        "critical": 0.0
+      },
+      "confidence": 0.999
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_002",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.027,
+        "critical": 0.972
+      },
+      "confidence": 0.972
+    },
+    "health_metrics": {
+      "health_score": 0.015,
+      "risk_score": 0.985,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_189",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_232",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_231",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_092",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_248",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_089",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.999,
+        "critical": 0.0
+      },
+      "confidence": 0.999
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_130",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.029,
+        "critical": 0.971
+      },
+      "confidence": 0.971
+    },
+    "health_metrics": {
+      "health_score": 0.015,
+      "risk_score": 0.985,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_287",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.965,
+        "critical": 0.035
+      },
+      "confidence": 0.965
+    },
+    "health_metrics": {
+      "health_score": 0.483,
+      "risk_score": 0.517,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_221",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_279",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.989,
+        "degraded": 0.011,
+        "critical": 0.0
+      },
+      "confidence": 0.989
+    },
+    "health_metrics": {
+      "health_score": 0.994,
+      "risk_score": 0.006,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_013",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_194",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_198",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.954,
+        "degraded": 0.046,
+        "critical": 0.0
+      },
+      "confidence": 0.954
+    },
+    "health_metrics": {
+      "health_score": 0.977,
+      "risk_score": 0.023,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_072",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.188,
+        "degraded": 0.812,
+        "critical": 0.0
+      },
+      "confidence": 0.812
+    },
+    "health_metrics": {
+      "health_score": 0.594,
+      "risk_score": 0.406,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_123",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_151",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_214",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_223",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_084",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.971,
+        "critical": 0.029
+      },
+      "confidence": 0.971
+    },
+    "health_metrics": {
+      "health_score": 0.486,
+      "risk_score": 0.514,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_208",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.041,
+        "degraded": 0.924,
+        "critical": 0.034
+      },
+      "confidence": 0.924
+    },
+    "health_metrics": {
+      "health_score": 0.504,
+      "risk_score": 0.496,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_038",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.005,
+        "degraded": 0.214,
+        "critical": 0.782
+      },
+      "confidence": 0.782
+    },
+    "health_metrics": {
+      "health_score": 0.111,
+      "risk_score": 0.889,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_010",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.0,
+        "critical": 1.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.0,
+      "risk_score": 1.0,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_049",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.002,
+        "degraded": 0.998,
+        "critical": 0.0
+      },
+      "confidence": 0.998
+    },
+    "health_metrics": {
+      "health_score": 0.501,
+      "risk_score": 0.499,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_201",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_142",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_187",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_161",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.999,
+        "critical": 0.0
+      },
+      "confidence": 0.999
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_227",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.999,
+        "critical": 0.0
+      },
+      "confidence": 0.999
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_007",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.003,
+        "degraded": 0.997,
+        "critical": 0.0
+      },
+      "confidence": 0.997
+    },
+    "health_metrics": {
+      "health_score": 0.502,
+      "risk_score": 0.498,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_124",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_020",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.196,
+        "degraded": 0.785,
+        "critical": 0.019
+      },
+      "confidence": 0.785
+    },
+    "health_metrics": {
+      "health_score": 0.589,
+      "risk_score": 0.411,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_036",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_050",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.028,
+        "degraded": 0.712,
+        "critical": 0.259
+      },
+      "confidence": 0.712
+    },
+    "health_metrics": {
+      "health_score": 0.384,
+      "risk_score": 0.616,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_163",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_290",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.999,
+        "critical": 0.0
+      },
+      "confidence": 0.999
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_026",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.532,
+        "degraded": 0.468,
+        "critical": 0.0
+      },
+      "confidence": 0.532
+    },
+    "health_metrics": {
+      "health_score": 0.766,
+      "risk_score": 0.234,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_199",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.027,
+        "degraded": 0.973,
+        "critical": 0.0
+      },
+      "confidence": 0.973
+    },
+    "health_metrics": {
+      "health_score": 0.514,
+      "risk_score": 0.486,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_269",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_197",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_085",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_128",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.996,
+        "degraded": 0.004,
+        "critical": 0.0
+      },
+      "confidence": 0.996
+    },
+    "health_metrics": {
+      "health_score": 0.998,
+      "risk_score": 0.002,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_034",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_091",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.002,
+        "degraded": 0.998,
+        "critical": 0.0
+      },
+      "confidence": 0.998
+    },
+    "health_metrics": {
+      "health_score": 0.501,
+      "risk_score": 0.499,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_105",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_281",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_199",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.961,
+        "critical": 0.039
+      },
+      "confidence": 0.961
+    },
+    "health_metrics": {
+      "health_score": 0.481,
+      "risk_score": 0.519,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_135",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_166",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.009,
+        "degraded": 0.991,
+        "critical": 0.0
+      },
+      "confidence": 0.991
+    },
+    "health_metrics": {
+      "health_score": 0.504,
+      "risk_score": 0.496,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_165",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.003,
+        "degraded": 0.229,
+        "critical": 0.767
+      },
+      "confidence": 0.767
+    },
+    "health_metrics": {
+      "health_score": 0.118,
+      "risk_score": 0.882,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_125",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.011,
+        "degraded": 0.97,
+        "critical": 0.019
+      },
+      "confidence": 0.97
+    },
+    "health_metrics": {
+      "health_score": 0.496,
+      "risk_score": 0.504,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_220",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_143",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.01,
+        "degraded": 0.99,
+        "critical": 0.0
+      },
+      "confidence": 0.99
+    },
+    "health_metrics": {
+      "health_score": 0.505,
+      "risk_score": 0.495,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_209",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_276",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_235",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_172",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.41,
+        "degraded": 0.59,
+        "critical": 0.0
+      },
+      "confidence": 0.59
+    },
+    "health_metrics": {
+      "health_score": 0.705,
+      "risk_score": 0.295,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_156",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.989,
+        "degraded": 0.011,
+        "critical": 0.0
+      },
+      "confidence": 0.989
+    },
+    "health_metrics": {
+      "health_score": 0.994,
+      "risk_score": 0.006,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_090",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_097",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.971,
+        "degraded": 0.029,
+        "critical": 0.0
+      },
+      "confidence": 0.971
+    },
+    "health_metrics": {
+      "health_score": 0.985,
+      "risk_score": 0.015,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_026",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.002,
+        "critical": 0.998
+      },
+      "confidence": 0.998
+    },
+    "health_metrics": {
+      "health_score": 0.001,
+      "risk_score": 0.999,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_082",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.0,
+        "critical": 1.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.0,
+      "risk_score": 1.0,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_277",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.921,
+        "degraded": 0.079,
+        "critical": 0.0
+      },
+      "confidence": 0.921
+    },
+    "health_metrics": {
+      "health_score": 0.96,
+      "risk_score": 0.04,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_262",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_295",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.003,
+        "degraded": 0.979,
+        "critical": 0.018
+      },
+      "confidence": 0.979
+    },
+    "health_metrics": {
+      "health_score": 0.492,
+      "risk_score": 0.508,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_167",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.189,
+        "degraded": 0.811,
+        "critical": 0.0
+      },
+      "confidence": 0.811
+    },
+    "health_metrics": {
+      "health_score": 0.595,
+      "risk_score": 0.405,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_140",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_081",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_104",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.006,
+        "degraded": 0.991,
+        "critical": 0.003
+      },
+      "confidence": 0.991
+    },
+    "health_metrics": {
+      "health_score": 0.502,
+      "risk_score": 0.498,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_007",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_087",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_068",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.933,
+        "degraded": 0.067,
+        "critical": 0.0
+      },
+      "confidence": 0.933
+    },
+    "health_metrics": {
+      "health_score": 0.967,
+      "risk_score": 0.033,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_211",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_218",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.115,
+        "degraded": 0.885,
+        "critical": 0.0
+      },
+      "confidence": 0.885
+    },
+    "health_metrics": {
+      "health_score": 0.558,
+      "risk_score": 0.442,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_242",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.0,
+        "critical": 1.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.0,
+      "risk_score": 1.0,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_100",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_266",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 1.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_298",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.007,
+        "critical": 0.993
+      },
+      "confidence": 0.993
+    },
+    "health_metrics": {
+      "health_score": 0.004,
+      "risk_score": 0.996,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_181",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.996,
+        "degraded": 0.004,
+        "critical": 0.0
+      },
+      "confidence": 0.996
+    },
+    "health_metrics": {
+      "health_score": 0.998,
+      "risk_score": 0.002,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_031",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_193",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_066",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_244",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_041",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.001,
+        "degraded": 0.999,
+        "critical": 0.0
+      },
+      "confidence": 0.999
+    },
+    "health_metrics": {
+      "health_score": 0.5,
+      "risk_score": 0.5,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_070",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.946,
+        "critical": 0.054
+      },
+      "confidence": 0.946
+    },
+    "health_metrics": {
+      "health_score": 0.473,
+      "risk_score": 0.527,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_180",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_064",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.955,
+        "degraded": 0.045,
+        "critical": 0.0
+      },
+      "confidence": 0.955
+    },
+    "health_metrics": {
+      "health_score": 0.978,
+      "risk_score": 0.022,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_245",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_035",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_162",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.002,
+        "degraded": 0.998,
+        "critical": 0.0
+      },
+      "confidence": 0.998
+    },
+    "health_metrics": {
+      "health_score": 0.501,
+      "risk_score": 0.499,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_078",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.01,
+        "degraded": 0.99,
+        "critical": 0.0
+      },
+      "confidence": 0.99
+    },
+    "health_metrics": {
+      "health_score": 0.505,
+      "risk_score": 0.495,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_190",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_008",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_080",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.185,
+        "degraded": 0.815,
+        "critical": 0.0
+      },
+      "confidence": 0.815
+    },
+    "health_metrics": {
+      "health_score": 0.592,
+      "risk_score": 0.408,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_017",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.941,
+        "critical": 0.059
+      },
+      "confidence": 0.941
+    },
+    "health_metrics": {
+      "health_score": 0.471,
+      "risk_score": 0.529,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_186",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.133,
+        "degraded": 0.867,
+        "critical": 0.0
+      },
+      "confidence": 0.867
+    },
+    "health_metrics": {
+      "health_score": 0.566,
+      "risk_score": 0.434,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "HUAWEI_BOX_098",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "NOKIA_BOX_285",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  }
+]

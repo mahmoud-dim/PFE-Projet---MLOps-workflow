@@ -6,10 +6,10 @@ Model: Random Forest Classifier
 
               precision    recall  f1-score   support
 
- Optimal (0)       0.87      0.89      0.88        38
- Dégradé (1)       0.62      0.57      0.59        14
-Critique (2)       0.88      0.88      0.88         8
+ Optimal (0)       0.91      0.88      0.89        33
+ Dégradé (1)       0.67      0.57      0.62        14
+Critique (2)       0.81      1.00      0.90        13
 
-    accuracy                           0.82        60
-   macro avg       0.79      0.78      0.78        60
-weighted avg       0.81      0.82      0.81        60
+    accuracy                           0.83        60
+   macro avg       0.80      0.82      0.80        60
+weighted avg       0.83      0.83      0.83        60

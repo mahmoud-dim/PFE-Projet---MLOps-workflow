@@ -15,24 +15,24 @@
   ],
   "feature_importance": [
     {
+      "feature": "downstream_curr_rate_kbps",
+      "importance": 0.2864126657636431
+    },
+    {
       "feature": "crc_errors_total",
-      "importance": 0.3473689344827078
+      "importance": 0.26870768787079236
     },
     {
       "feature": "snr_margin_down_db",
-      "importance": 0.2410414840691374
-    },
-    {
-      "feature": "downstream_curr_rate_kbps",
-      "importance": 0.22296431853765225
+      "importance": 0.20984436679110002
     },
     {
       "feature": "attenuation_down_db",
-      "importance": 0.15451486535973544
+      "importance": 0.1610748082483794
     },
     {
       "feature": "downstream_max_rate_kbps",
-      "importance": 0.03411039755076709
+      "importance": 0.07396047132608517
     }
   ],
   "classes": [

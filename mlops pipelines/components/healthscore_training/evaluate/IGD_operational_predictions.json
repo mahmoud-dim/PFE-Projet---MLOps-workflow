@@ -1,0 +1,1322 @@
+[
+  {
+    "device_id": "IGD_271",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.882,
+        "degraded": 0.117,
+        "critical": 0.001
+      },
+      "confidence": 0.882
+    },
+    "health_metrics": {
+      "health_score": 0.94,
+      "risk_score": 0.06,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_298",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.997,
+        "degraded": 0.003,
+        "critical": 0.0
+      },
+      "confidence": 0.997
+    },
+    "health_metrics": {
+      "health_score": 0.999,
+      "risk_score": 0.001,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_147",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.997,
+        "degraded": 0.003,
+        "critical": 0.0
+      },
+      "confidence": 0.997
+    },
+    "health_metrics": {
+      "health_score": 0.999,
+      "risk_score": 0.001,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_157",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.773,
+        "degraded": 0.223,
+        "critical": 0.004
+      },
+      "confidence": 0.773
+    },
+    "health_metrics": {
+      "health_score": 0.885,
+      "risk_score": 0.115,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_038",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.977,
+        "degraded": 0.023,
+        "critical": 0.0
+      },
+      "confidence": 0.977
+    },
+    "health_metrics": {
+      "health_score": 0.989,
+      "risk_score": 0.011,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_191",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_224",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.46,
+        "degraded": 0.516,
+        "critical": 0.024
+      },
+      "confidence": 0.516
+    },
+    "health_metrics": {
+      "health_score": 0.718,
+      "risk_score": 0.282,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_247",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.991,
+        "degraded": 0.009,
+        "critical": 0.0
+      },
+      "confidence": 0.991
+    },
+    "health_metrics": {
+      "health_score": 0.996,
+      "risk_score": 0.004,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_294",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.152,
+        "degraded": 0.373,
+        "critical": 0.474
+      },
+      "confidence": 0.474
+    },
+    "health_metrics": {
+      "health_score": 0.339,
+      "risk_score": 0.661,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_203",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.986,
+        "degraded": 0.014,
+        "critical": 0.0
+      },
+      "confidence": 0.986
+    },
+    "health_metrics": {
+      "health_score": 0.993,
+      "risk_score": 0.007,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_043",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.129,
+        "degraded": 0.364,
+        "critical": 0.507
+      },
+      "confidence": 0.507
+    },
+    "health_metrics": {
+      "health_score": 0.311,
+      "risk_score": 0.689,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_083",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.387,
+        "degraded": 0.573,
+        "critical": 0.04
+      },
+      "confidence": 0.573
+    },
+    "health_metrics": {
+      "health_score": 0.673,
+      "risk_score": 0.327,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_170",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.691,
+        "degraded": 0.277,
+        "critical": 0.032
+      },
+      "confidence": 0.691
+    },
+    "health_metrics": {
+      "health_score": 0.83,
+      "risk_score": 0.17,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_090",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.008,
+        "degraded": 0.16,
+        "critical": 0.832
+      },
+      "confidence": 0.832
+    },
+    "health_metrics": {
+      "health_score": 0.088,
+      "risk_score": 0.912,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_003",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.015,
+        "degraded": 0.039,
+        "critical": 0.946
+      },
+      "confidence": 0.946
+    },
+    "health_metrics": {
+      "health_score": 0.035,
+      "risk_score": 0.965,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_194",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.003,
+        "degraded": 0.039,
+        "critical": 0.957
+      },
+      "confidence": 0.957
+    },
+    "health_metrics": {
+      "health_score": 0.023,
+      "risk_score": 0.977,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_254",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.007,
+        "degraded": 0.356,
+        "critical": 0.636
+      },
+      "confidence": 0.636
+    },
+    "health_metrics": {
+      "health_score": 0.186,
+      "risk_score": 0.814,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 1,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_256",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.975,
+        "degraded": 0.025,
+        "critical": 0.0
+      },
+      "confidence": 0.975
+    },
+    "health_metrics": {
+      "health_score": 0.987,
+      "risk_score": 0.013,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_103",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.685,
+        "degraded": 0.311,
+        "critical": 0.004
+      },
+      "confidence": 0.685
+    },
+    "health_metrics": {
+      "health_score": 0.84,
+      "risk_score": 0.16,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_152",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.007,
+        "degraded": 0.182,
+        "critical": 0.811
+      },
+      "confidence": 0.811
+    },
+    "health_metrics": {
+      "health_score": 0.098,
+      "risk_score": 0.902,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_100",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.986,
+        "degraded": 0.014,
+        "critical": 0.0
+      },
+      "confidence": 0.986
+    },
+    "health_metrics": {
+      "health_score": 0.993,
+      "risk_score": 0.007,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_229",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.988,
+        "degraded": 0.012,
+        "critical": 0.0
+      },
+      "confidence": 0.988
+    },
+    "health_metrics": {
+      "health_score": 0.994,
+      "risk_score": 0.006,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_120",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.003,
+        "degraded": 0.5,
+        "critical": 0.497
+      },
+      "confidence": 0.5
+    },
+    "health_metrics": {
+      "health_score": 0.253,
+      "risk_score": 0.747,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_228",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_173",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.57,
+        "degraded": 0.427,
+        "critical": 0.004
+      },
+      "confidence": 0.57
+    },
+    "health_metrics": {
+      "health_score": 0.783,
+      "risk_score": 0.217,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_277",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.749,
+        "degraded": 0.247,
+        "critical": 0.004
+      },
+      "confidence": 0.749
+    },
+    "health_metrics": {
+      "health_score": 0.873,
+      "risk_score": 0.127,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_222",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.631,
+        "degraded": 0.344,
+        "critical": 0.026
+      },
+      "confidence": 0.631
+    },
+    "health_metrics": {
+      "health_score": 0.802,
+      "risk_score": 0.198,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_028",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.072,
+        "critical": 0.928
+      },
+      "confidence": 0.928
+    },
+    "health_metrics": {
+      "health_score": 0.036,
+      "risk_score": 0.964,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_084",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.287,
+        "degraded": 0.673,
+        "critical": 0.04
+      },
+      "confidence": 0.673
+    },
+    "health_metrics": {
+      "health_score": 0.624,
+      "risk_score": 0.376,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_082",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.004,
+        "degraded": 0.783,
+        "critical": 0.213
+      },
+      "confidence": 0.783
+    },
+    "health_metrics": {
+      "health_score": 0.395,
+      "risk_score": 0.605,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_037",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_040",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.0,
+        "degraded": 0.032,
+        "critical": 0.968
+      },
+      "confidence": 0.968
+    },
+    "health_metrics": {
+      "health_score": 0.016,
+      "risk_score": 0.984,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_086",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.363,
+        "degraded": 0.568,
+        "critical": 0.069
+      },
+      "confidence": 0.568
+    },
+    "health_metrics": {
+      "health_score": 0.647,
+      "risk_score": 0.353,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_216",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.991,
+        "degraded": 0.009,
+        "critical": 0.0
+      },
+      "confidence": 0.991
+    },
+    "health_metrics": {
+      "health_score": 0.996,
+      "risk_score": 0.004,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_069",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.977,
+        "degraded": 0.023,
+        "critical": 0.0
+      },
+      "confidence": 0.977
+    },
+    "health_metrics": {
+      "health_score": 0.989,
+      "risk_score": 0.011,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_052",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.003,
+        "degraded": 0.427,
+        "critical": 0.57
+      },
+      "confidence": 0.57
+    },
+    "health_metrics": {
+      "health_score": 0.217,
+      "risk_score": 0.783,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_251",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_207",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.013,
+        "degraded": 0.177,
+        "critical": 0.81
+      },
+      "confidence": 0.81
+    },
+    "health_metrics": {
+      "health_score": 0.102,
+      "risk_score": 0.898,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_266",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_015",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.002,
+        "degraded": 0.743,
+        "critical": 0.255
+      },
+      "confidence": 0.743
+    },
+    "health_metrics": {
+      "health_score": 0.373,
+      "risk_score": 0.627,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_085",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_167",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.005,
+        "degraded": 0.177,
+        "critical": 0.818
+      },
+      "confidence": 0.818
+    },
+    "health_metrics": {
+      "health_score": 0.093,
+      "risk_score": 0.907,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_021",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.01,
+        "degraded": 0.472,
+        "critical": 0.518
+      },
+      "confidence": 0.518
+    },
+    "health_metrics": {
+      "health_score": 0.246,
+      "risk_score": 0.754,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_056",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.588,
+        "degraded": 0.409,
+        "critical": 0.004
+      },
+      "confidence": 0.588
+    },
+    "health_metrics": {
+      "health_score": 0.792,
+      "risk_score": 0.208,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_185",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_141",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_234",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.005,
+        "degraded": 0.746,
+        "critical": 0.249
+      },
+      "confidence": 0.746
+    },
+    "health_metrics": {
+      "health_score": 0.378,
+      "risk_score": 0.622,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_238",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.966,
+        "degraded": 0.034,
+        "critical": 0.0
+      },
+      "confidence": 0.966
+    },
+    "health_metrics": {
+      "health_score": 0.983,
+      "risk_score": 0.017,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_235",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.009,
+        "degraded": 0.172,
+        "critical": 0.819
+      },
+      "confidence": 0.819
+    },
+    "health_metrics": {
+      "health_score": 0.095,
+      "risk_score": 0.905,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_178",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.222,
+        "degraded": 0.617,
+        "critical": 0.161
+      },
+      "confidence": 0.617
+    },
+    "health_metrics": {
+      "health_score": 0.53,
+      "risk_score": 0.47,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_174",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_205",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.263,
+        "degraded": 0.706,
+        "critical": 0.031
+      },
+      "confidence": 0.706
+    },
+    "health_metrics": {
+      "health_score": 0.616,
+      "risk_score": 0.384,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "monitor",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_062",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 1.0,
+        "degraded": 0.0,
+        "critical": 0.0
+      },
+      "confidence": 1.0
+    },
+    "health_metrics": {
+      "health_score": 1.0,
+      "risk_score": 0.0,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_019",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.997,
+        "degraded": 0.003,
+        "critical": 0.0
+      },
+      "confidence": 0.997
+    },
+    "health_metrics": {
+      "health_score": 0.999,
+      "risk_score": 0.001,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_208",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.284,
+        "degraded": 0.638,
+        "critical": 0.077
+      },
+      "confidence": 0.638
+    },
+    "health_metrics": {
+      "health_score": 0.603,
+      "risk_score": 0.397,
+      "risk_level": "medium"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_068",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.005,
+        "degraded": 0.166,
+        "critical": 0.829
+      },
+      "confidence": 0.829
+    },
+    "health_metrics": {
+      "health_score": 0.088,
+      "risk_score": 0.912,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "dispatch_technician",
+      "priority_level": 1,
+      "auto_ticket": true
+    }
+  },
+  {
+    "device_id": "IGD_034",
+    "prediction": {
+      "predicted_class": "critical",
+      "class_probabilities": {
+        "optimal": 0.052,
+        "degraded": 0.449,
+        "critical": 0.499
+      },
+      "confidence": 0.499
+    },
+    "health_metrics": {
+      "health_score": 0.277,
+      "risk_score": 0.723,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_023",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.994,
+        "degraded": 0.006,
+        "critical": 0.0
+      },
+      "confidence": 0.994
+    },
+    "health_metrics": {
+      "health_score": 0.997,
+      "risk_score": 0.003,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_225",
+    "prediction": {
+      "predicted_class": "optimal",
+      "class_probabilities": {
+        "optimal": 0.997,
+        "degraded": 0.003,
+        "critical": 0.0
+      },
+      "confidence": 0.997
+    },
+    "health_metrics": {
+      "health_score": 0.999,
+      "risk_score": 0.001,
+      "risk_level": "low"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 3,
+      "auto_ticket": false
+    }
+  },
+  {
+    "device_id": "IGD_233",
+    "prediction": {
+      "predicted_class": "degraded",
+      "class_probabilities": {
+        "optimal": 0.011,
+        "degraded": 0.64,
+        "critical": 0.349
+      },
+      "confidence": 0.64
+    },
+    "health_metrics": {
+      "health_score": 0.331,
+      "risk_score": 0.669,
+      "risk_level": "high"
+    },
+    "decision_support": {
+      "recommended_action": "no_action",
+      "priority_level": 2,
+      "auto_ticket": false
+    }
+  }
+]

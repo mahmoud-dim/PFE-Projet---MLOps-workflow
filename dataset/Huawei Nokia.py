@@ -1,8 +1,8 @@
 import pandas as pd
 
 # Charger les datasets
-df_huawei = pd.read_csv("datasets/huawei_realistic.csv")
-df_nokia  = pd.read_csv("datasets/nokia_realistic.csv")
+df_huawei = pd.read_csv("dataset/datasets/huawei_realistic.csv")
+df_nokia  = pd.read_csv("dataset/datasets/nokia_realistic.csv")
 
 # =========================
 # AJOUT DE LA COLONNE VENDOR
@@ -34,6 +34,6 @@ print(df_combined.head())
 # =========================
 # SAUVEGARDE
 # =========================
-df_combined.to_csv("datasets/fibre_combined_realistic.csv", index=False)
+df_combined.to_csv("dataset/datasets/fibre_combined_realistic.csv", index=False)
 
 print("✅ Datasets Huawei et Nokia fusionnés avec succès avec colonne vendor !")
