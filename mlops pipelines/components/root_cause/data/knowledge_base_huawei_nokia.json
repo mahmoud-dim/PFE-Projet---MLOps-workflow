@@ -1,0 +1,92 @@
+[
+  {
+    "Cause": "Perturbation Environnementale",
+    "Indicators": [
+      "RxPower < -24 dBm et fluctuant",
+      "Température > 65°C ou < 10°C",
+      "BiasCurrent > 13000 µA et instable",
+      "Supply Voltage instable (fluctuations)"
+    ],
+    "Description": "Instabilité causée par des interférences électromagnétiques, variations de température extrêmes (gel, chaleur), humidité ou infiltration d'eau dans les boîtiers de jonction fibre. Dégradation souvent corrélée avec la météo ou l'environnement physique de la box."
+  },
+  {
+    "Cause": "Saturation / Configuration",
+    "Indicators": [
+      "RxPower normale (entre -20 et -10 dBm)",
+      "BiasCurrent normale (< 12000 µA)",
+      "Température norma    le (< 60°C)",
+      "Débit limité malgré une fibre saine"
+    ],
+    "Description": "Problème lié à une mauvaise configuration réseau (profil GPON, T-CONT, GEM port) ou saturation du port OLT. La fibre physique est parfaite mais le débit est limité côté réseau. Port OLT saturé, VLAN ou QoS mal paramétrés, trop de ONT sur le même splitter."
+  },
+  {
+    "Cause": "Saturation de Zone (Crosstalk)",
+    "Indicators": [
+      "RxPower normale ou légèrement faible",
+      "BiasCurrent normale",
+      "Dégradation aux heures de pointe (18h-23h)",
+      "Plusieurs ONT du même segment dégradées simultanément"
+    ],
+    "Description": "Saturation de bande passante sur le segment GPON partagé. OLT en surcharge lors des heures de pointe. Splitter optique partagé par trop de ONT. Moins fréquent en fibre qu'en ADSL car la fibre est insensible aux interférences électromagnétiques."
+  },
+  {
+    "Cause": "Atténuation de Ligne / Distance",
+    "Indicators": [
+      "RxPower < -24 dBm stable (pas de fluctuations)",
+      "BiasCurrent > 12000 µA (laser qui compense)",
+      "Température légèrement élevée (55-65°C)",
+      "Budget optique dépassé"
+    ],
+    "Description": "Affaiblissement du signal dû à la distance entre ONT et OLT ou à trop de splitters en cascade. Câblage fibre vétuste ou de mauvaise qualité augmentant les pertes optiques. RxPower faible mais stable, typique d'une atténuation permanente et non intermittente."
+  },
+  {
+    "Cause": "Bridage Logiciel",
+    "Indicators": [
+      "RxPower excellente (entre -20 et -10 dBm)",
+      "BiasCurrent normale (< 11000 µA)",
+      "Température normale (< 55°C)",
+      "Supply Voltage parfaite (3.25-3.35 V)"
+    ],
+    "Description": "Limitation volontaire du débit selon l'offre commerciale souscrite. Firmware de la ONT bugué ou obsolète, profil GPON configuré avec des limites trop basses. Toutes les métriques physiques sont parfaites mais le débit est bridé logiciellement par l'opérateur."
+  },
+  {
+    "Cause": "Vieillissement du Matériel (Hardware Aging)",
+    "Indicators": [
+      "BiasCurrent > 13000 µA et en augmentation progressive",
+      "RxPower en baisse progressive",
+      "Température > 60°C en continu",
+      "Supply Voltage légèrement instable"
+    ],
+    "Description": "Dégradation progressive des composants matériels. Laser GPON vieillissant nécessitant plus de courant pour maintenir la même puissance optique. Condensateurs usés causant une instabilité électrique. Box utilisée depuis > 7 ans. Signature : BiasCurrent croissant + RxPower décroissant."
+  },
+  {
+    "Cause": "Instabilité Électrique (Power Supply Issue)",
+    "Indicators": [
+      "Supply Voltage < 3.1 V ou > 3.5 V",
+      "BiasCurrent instable avec grandes variations",
+      "RxPower fluctuant sans raison optique",
+      "Redémarrages fréquents et aléatoires"
+    ],
+    "Description": "Alimentation secteur instable causant des micro-coupures et redémarrages de la ONT. Surtensions sur le réseau électrique, câble d'alimentation endommagé, prise secteur défaillante. Fluctuations de tension affectant le laser et les composants optiques. Supply Voltage hors plage."
+  },
+  {
+    "Cause": "Macrobend / Connecteur Sale",
+    "Indicators": [
+      "RxPower < -24 dBm (atténuation optique élevée)",
+      "BiasCurrent > 12000 µA (laser qui compense)",
+      "Température > 58°C (laser qui chauffe en forçant)",
+      "Supply Voltage normale"
+    ],
+    "Description": "Atténuation optique causée par une fibre courbée trop serrément (rayon < 30 mm), câble écrasé derrière un meuble, connecteur SC/APC sale avec poussière ou oxydation, épissure mal réalisée. Dégradation souvent soudaine après déménagement ou travaux. RxPower faible et stable."
+  },
+  {
+    "Cause": "Rupture Partielle Fibre",
+    "Indicators": [
+      "RxPower < -28 dBm ou très intermittent (signal présent puis absent)",
+      "BiasCurrent > 16000 µA (laser au maximum absolu)",
+      "Température > 70°C (laser en surchauffe)",
+      "Déconnexions aléatoires et fréquentes"
+    ],
+    "Description": "Fibre optique légèrement cassée ou micro-fissurée causant un signal très faible et intermittent. Pince ou agrafe trop serrée écrasant progressivement la fibre, micro-fissure due à un choc mécanique. Situation critique nécessitant une intervention urgente avec réflectomètre OTDR."
+  }
+]

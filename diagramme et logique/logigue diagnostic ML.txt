@@ -73,4 +73,7 @@
 				➡️ Dépassement du seuil critique prévu dans 1.33 jours
 				➡️ Risque élevé de perturbation environnementale ou saturation de zone
 				➡️ Action recommandée : surveillance proactive / intervention préventive
-			   
+
+
+
+

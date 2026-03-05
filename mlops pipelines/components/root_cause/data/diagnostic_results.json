@@ -1,0 +1,1568 @@
+[
+  {
+    "device_id": "NOKIA_BOX_263",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une température élevée. Cela suggère que les composants matériels de la box sont en train de se dégrader.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants électriques, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_019",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_019 présente des symptômes de dégradation, notamment un BiasCurrent élevé et en augmentation progressive, ainsi qu'un RxPower en baisse. La température est également élevée, ce qui suggère un vieillissement des composants matériels.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.919,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_073",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_073 présente des signes de perturbation environnementale, tels qu'une puissance de réception (RxPower) faible et fluctuante, une température élevée et un courant de bias instable. Ces indicateurs suggèrent que la box est exposée à des conditions environnementales défavorables, telles que des interférences électromagnétiques, des variations de température extrêmes ou une humidité élevée.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température, l'humidité et les interférences électromagnétiques, et prendre des mesures pour améliorer les conditions de fonctionnement, telles que déplacer la box dans un endroit plus stable ou installer des systèmes de refroidissement ou de protection contre les interférences."
+    },
+    "scenario1_confidence": 0.698,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "no_action"
+  },
+  {
+    "device_id": "NOKIA_BOX_080",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_080 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse (-27.68 dBm), un courant de bias élevé (14388.96 µA) et une température élevée (62.13°C). Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%. Les perturbations environnementales et le bridage logiciel sont également possibles, mais avec des probabilités moindres.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.986,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_041",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_041 présente des signes de dégradation, notamment une puissance de réception (RxPower) faible et fluctuante, une température élevée et un courant de polarisation (BiasCurrent) instable. Ces indicateurs suggèrent une perturbation environnementale comme cause principale, potentiellement due à des interférences électromagnétiques, des variations de température extrêmes ou une humidité excessive.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des tests pour détecter les interférences électromagnétiques. Il est également recommandé de vérifier l'état des connecteurs et des câbles optiques pour éliminer toute possibilité de défaillance matérielle."
+    },
+    "scenario1_confidence": 0.995,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_225",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_225 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) faible et une température élevée. Le courant de polarisation (BiasCurrent) est également élevé et instable, ce qui suggère un vieillissement du matériel. Les fluctuations de la tension d'alimentation et la température élevée renforcent cette hypothèse.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.999,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_170",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_170 présente des signes de dégradation, notamment une puissance de réception (RxPower) faible et fluctuante, une température élevée et un courant de bias instable. Ces indicateurs suggèrent une perturbation environnementale comme cause principale, potentiellement due à des interférences électromagnétiques, des variations de température extrêmes ou une humidité excessive.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des tests pour détecter les interférences électromagnétiques. Il est également recommandé de vérifier l'état des connecteurs et des câbles pour s'assurer qu'ils ne sont pas endommagés ou corrodés."
+    },
+    "scenario1_confidence": 0.999,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_002",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        },
+        "cause_3": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_002 présente des symptômes tels que une puissance de réception (RxPower) faible et fluctuante, une température élevée et un courant de polarisation (BiasCurrent) élevé, ce qui suggère une perturbation environnementale. Cependant, le vieillissement du matériel ne peut pas être exclu étant donné la température élevée et le courant de polarisation en augmentation.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des tests pour déterminer si la cause est bien une perturbation environnementale ou si le matériel est en train de vieillir. Une inspection et une maintenance de la box peuvent être nécessaires."
+    },
+    "scenario1_confidence": 0.972,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "dispatch_technician"
+  },
+  {
+    "device_id": "NOKIA_BOX_231",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_231 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse (-26.9 dBm), un courant de bias élevé (14286.7 µA) et une température élevée (60.78°C). Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%. Les perturbations environnementales et le bridage logiciel sont également possibles, mais avec des probabilités moindres.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_089",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_089 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse, un courant de polarisation (BiasCurrent) élevé et une température supérieure à 60°C. Ces indicateurs suggèrent principalement un vieillissement du matériel, mais des perturbations environnementales ou un bridage logiciel ne peuvent être exclus.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager une mise à jour du firmware ou un remplacement de la box si nécessaire."
+    },
+    "scenario1_confidence": 0.999,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_130",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_130 présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une température élevée. Cela suggère que les composants matériels de la box sont en train de se dégrader.",
+      "action_recommandee": "Vérifier l'état physique de la box, remplacer les composants défectueux si nécessaire et effectuer une mise à jour du firmware pour s'assurer que la box fonctionne dans des conditions optimales."
+    },
+    "scenario1_confidence": 0.971,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "dispatch_technician"
+  },
+  {
+    "device_id": "NOKIA_BOX_287",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_287 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse (-27.72 dBm), un courant de bias élevé (14509.24 µA) et une température élevée (65.81°C). Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%. Les perturbations environnementales et le bridage logiciel sont également possibles, mais avec des probabilités moindres.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.965,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_013",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une température élevée. Cela suggère que les composants matériels de la box sont en train de se dégrader.",
+      "action_recommandee": "Remplacement de la box ou vérification et remplacement des composants défectueux, ainsi que la mise à jour du firmware pour s'assurer de la compatibilité et de la stabilité du système."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_072",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_072 présente des signes de vieillissement du matériel, notamment une augmentation progressive du courant de bias et une baisse de la puissance de réception. Les mesures de température et de tension d'alimentation sont également proches des seuils critiques.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive pour éviter une défaillance totale."
+    },
+    "scenario1_confidence": 0.812,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_123",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation, ainsi qu'une RxPower en baisse. La température est également élevée, ce qui peut indiquer une dégradation des composants.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_151",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_151 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse et un courant de polarisation (BiasCurrent) élevé et instable. La température est également élevée. Ces indicateurs suggèrent principalement un vieillissement du matériel, mais des perturbations environnementales ou un bridage logiciel ne peuvent être exclus.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager une mise à jour du firmware ou un remplacement de la box si nécessaire."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_084",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une RxPower en baisse progressive. La température élevée de 66,65°C pourrait également contribuer à l'usure des composants.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive pour éviter des pannes plus graves."
+    },
+    "scenario1_confidence": 0.971,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_208",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_208 présente des signes de dégradation, notamment une puissance de réception (RxPower) faible et fluctuante, une température élevée et un courant de bias instable. Ces indicateurs suggèrent une perturbation environnementale comme cause principale, potentiellement due à des interférences électromagnétiques, des variations de température extrêmes ou une humidité excessive.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des mesures pour réduire les interférences électromagnétiques. Il est également recommandé de surveiller l'état de la box et de planifier une maintenance préventive pour éviter toute dégradation supplémentaire."
+    },
+    "scenario1_confidence": 0.924,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_038",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_038 présente des signes de perturbation environnementale, tels qu'une puissance de réception (RxPower) faible et fluctuante, une température élevée et un courant de bias instable. Ces indicateurs suggèrent que la box est exposée à des conditions environnementales défavorables, telles que des interférences électromagnétiques, des variations de température extrêmes ou une humidité élevée.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température, l'humidité et les interférences électromagnétiques, et prendre des mesures pour améliorer les conditions de fonctionnement de la box, telles que la mise en place d'un système de refroidissement ou la protection de la box contre les interférences électromagnétiques."
+    },
+    "scenario1_confidence": 0.782,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "dispatch_technician"
+  },
+  {
+    "device_id": "HUAWEI_BOX_010",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_010 présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une RxPower en baisse progressive. Cela suggère que les composants matériels de la box sont en train de se dégrader.",
+      "action_recommandee": "Remplacement de la box ou vérification et remplacement des composants défaillants, notamment le laser GPON et les condensateurs."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "dispatch_technician"
+  },
+  {
+    "device_id": "HUAWEI_BOX_049",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_049 présente des signes de dégradation, notamment une puissance de réception (RxPower) faible et fluctuante, une température élevée et un courant de bias instable. Ces indicateurs suggèrent une perturbation environnementale comme cause principale, mais un vieillissement du matériel ne peut pas être exclu.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des tests de diagnostic pour déterminer si le problème est dû à une perturbation environnementale ou à un vieillissement du matériel."
+    },
+    "scenario1_confidence": 0.998,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_201",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des signes de vieillissement du matériel, avec un BiasCurrent élevé et en augmentation progressive, ainsi qu'une température supérieure à 60°C. Cela suggère que les composants matériels sont en train de se dégrader.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_187",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une RxPower en baisse progressive. La température élevée de 58,79°C pourrait également contribuer à cette dégradation.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive pour éviter une défaillance totale."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_161",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_161 présente des signes de dégradation, notamment une puissance de réception (RxPower) faible et fluctuante, une température élevée et un courant de bias instable. Ces indicateurs suggèrent une perturbation environnementale comme cause principale, potentiellement due à des interférences électromagnétiques, des variations de température extrêmes ou une humidité élevée.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des mesures pour réduire les interférences électromagnétiques. Il est également recommandé de procéder à une inspection et à une maintenance de la box pour identifier et résoudre les problèmes potentiels."
+    },
+    "scenario1_confidence": 0.999,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_227",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_227 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) faible et une température élevée. Le courant de polarisation (BiasCurrent) est également élevé et instable, ce qui suggère un vieillissement du matériel. Les fluctuations de la tension d'alimentation et la température élevée renforcent cette hypothèse.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.999,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_007",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_007 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse, un courant de biais (BiasCurrent) élevé et une température supérieure à 60°C. Ces indicateurs suggèrent principalement un vieillissement du matériel, mais des perturbations environnementales ou un bridage logiciel ne peuvent pas être exclus.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager une mise à jour du firmware ou un remplacement de la box si nécessaire."
+    },
+    "scenario1_confidence": 0.997,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_020",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_020 présente des symptômes de dégradation, notamment une température élevée (63,2°C) et un BiasCurrent élevé (12567,39 µA), ce qui suggère un vieillissement du matériel. La RxPower est également en baisse (-23,37 dBm), ce qui corrobore cette hypothèse.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive."
+    },
+    "scenario1_confidence": 0.785,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_050",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_050 présente des signes de dégradation, notamment une puissance de réception (RxPower) en dessous de -24 dBm, une température élevée et un courant de bias instable. Ces indicateurs suggèrent une perturbation environnementale comme cause principale, mais un vieillissement du matériel ne peut pas être exclu.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des tests pour évaluer l'état du matériel et du logiciel."
+    },
+    "scenario1_confidence": 0.712,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_290",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_290 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse, un courant de bias élevé et instable, ainsi qu'une température élevée. Ces indicateurs suggèrent principalement un vieillissement du matériel, mais des perturbations environnementales ou un bridage logiciel ne peuvent être exclus.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager une mise à jour du firmware ou un remplacement de la box si nécessaire."
+    },
+    "scenario1_confidence": 0.999,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_199",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_199 présente des symptômes de dégradation, notamment un BiasCurrent élevé et en augmentation progressive, ainsi qu'une RxPower en baisse. La température élevée et la tension d'alimentation légèrement instable soutiennent également cette hypothèse. Il est probable que le matériel vieillisse et nécessite une maintenance ou un remplacement.",
+      "action_recommandee": "Vérifier l'historique de maintenance de la box, effectuer des tests de diagnostic approfondis et considérer le remplacement du matériel si nécessaire."
+    },
+    "scenario1_confidence": 0.973,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_269",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une température élevée. Cela suggère que les composants matériels de la box sont en train de se dégrader.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_197",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_197 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse (-26.68 dBm), un courant de biais (BiasCurrent) élevé et instable (13507.0 µA), ainsi qu'une température élevée (63.52°C). Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_091",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_091 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse, un courant de polarisation (BiasCurrent) élevé et une température supérieure à 60°C. Ces indicateurs suggèrent principalement un vieillissement du matériel, mais des perturbations environnementales ou un bridage logiciel ne peuvent être exclus.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager une mise à jour du firmware ou un remplacement de la box si nécessaire."
+    },
+    "scenario1_confidence": 0.998,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_199",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_199 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse et un courant de biais (BiasCurrent) élevé et instable. La température élevée (62,08°C) et la tension d'alimentation légèrement instable soutiennent également cette hypothèse. Le vieillissement du matériel est la cause la plus probable, car les indicateurs correspondent à une dégradation progressive des composants matériels.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive pour éviter une défaillance totale."
+    },
+    "scenario1_confidence": 0.961,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_166",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_166 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) faible et une température élevée. Le courant de polarisation (BiasCurrent) est également élevé, ce qui suggère un vieillissement du matériel. Les fluctuations de température et de tension d'alimentation pourraient également contribuer à cette dégradation.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.991,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_165",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        },
+        "cause_3": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_165 présente des signes de perturbation environnementale, tels qu'une température élevée (70,68°C) et un courant de bias élevé (16674,15 µA), ce qui suggère une instabilité causée par des facteurs externes. Le vieillissement du matériel est également possible en raison de l'augmentation progressive du courant de bias et de la baisse de la puissance de réception.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des tests pour déterminer si le problème est dû à une perturbation environnementale ou à un vieillissement du matériel. Il est également recommandé de vérifier les paramètres de configuration de la box pour exclure tout problème de bridage logiciel."
+    },
+    "scenario1_confidence": 0.767,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "dispatch_technician"
+  },
+  {
+    "device_id": "NOKIA_BOX_125",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_125 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse (-27.45 dBm), un courant de bias élevé (14469.36 µA) et une température élevée (66.14°C). Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%. Les perturbations environnementales et le bridage logiciel sont également possibles, mais avec des probabilités moindres.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.97,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_143",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "10%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "80%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_143 présente des symptômes de dégradation tels qu'un BiasCurrent élevé et en augmentation progressive, une RxPower en baisse et une température élevée. Ces indicateurs suggèrent que le vieillissement du matériel est la cause principale de la dégradation.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive pour éviter une défaillance totale."
+    },
+    "scenario1_confidence": 0.99,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_209",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_209 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse, un courant de bias élevé et une température supérieure à 60°C. Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_172",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_172 présente des symptômes de dégradation, notamment une température élevée (65,81°C) et un courant de bias élevé (13727,41 µA), ce qui suggère un vieillissement du matériel. La puissance de réception (RxPower) est également en baisse (-21,69 dBm), ce qui corrobore cette hypothèse.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.59,
+    "scenario1_risk_level": "low",
+    "scenario1_action": "no_action"
+  },
+  {
+    "device_id": "NOKIA_BOX_090",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une température élevée. Cela suggère que les composants matériels de la box sont en train de se dégrader.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants électriques, et envisager un remplacement ou une maintenance de la box si nécessaire."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_026",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_026 présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une RxPower en baisse progressive. Cela suggère que les composants matériels de la box sont en train de se dégrader, ce qui peut nécessiter une maintenance ou un remplacement.",
+      "action_recommandee": "Vérifier l'historique de maintenance de la box et planifier une inspection approfondie pour déterminer si un remplacement ou une réparation est nécessaire."
+    },
+    "scenario1_confidence": 0.998,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "dispatch_technician"
+  },
+  {
+    "device_id": "HUAWEI_BOX_082",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_082 présente des signes de perturbation environnementale, tels qu'une puissance de réception faible (RxPower = -31.07 dBm) et une température élevée (72.37°C). Le courant de polarisation (BiasCurrent) est également élevé et instable, ce qui suggère une dégradation des composants matériels.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des tests de diagnostic pour identifier les causes sous-jacentes de la perturbation. Il est également recommandé de procéder à une inspection visuelle de la box et de ses connexions pour détecter tout signe de dommage ou de corrosion."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "dispatch_technician"
+  },
+  {
+    "device_id": "NOKIA_BOX_295",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_295 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse et un courant de polarisation (BiasCurrent) élevé et instable. La température élevée (62,33°C) et la tension d'alimentation légèrement instable soutiennent également cette hypothèse. Il est probable que le matériel vieillisse et nécessite une maintenance ou un remplacement.",
+      "action_recommandee": "Vérifier l'état physique de la box, contrôler les conditions environnementales et envisager un remplacement ou une mise à jour du matériel si nécessaire."
+    },
+    "scenario1_confidence": 0.979,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_167",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_167 présente des symptômes de dégradation, notamment une température élevée (65,08°C) et un courant de bias élevé (13897,84 µA), ce qui suggère un vieillissement du matériel. La puissance de réception (RxPower) est également en baisse (-18,77 dBm), ce qui corrobore cette hypothèse.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.811,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_104",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_104 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse, un courant de polarisation (BiasCurrent) élevé et instable, ainsi qu'une température élevée. Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%. Les perturbations environnementales et le bridage logiciel sont également possibles, mais avec des probabilités moindres.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.991,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_218",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_218 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) de -22.19 dBm, un courant de biais (BiasCurrent) élevé de 14363.55 µA et une température de 56.76°C. Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%. Les perturbations environnementales et le bridage logiciel sont également possibles, mais avec des probabilités moindres.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 0.885,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_242",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_242 présente des signes de perturbation environnementale, tels qu'une puissance de réception faible (RxPower=-30.85 dBm) et une température élevée (76.25°C). Le courant de polarisation (BiasCurrent) est également élevé et instable, ce qui suggère une dégradation des composants matériels.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des tests de diagnostic pour identifier les causes profondes de la perturbation. Il est également recommandé de procéder à une inspection visuelle de la box et de ses connexions pour détecter toute infiltration d'eau ou dommage physique."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "dispatch_technician"
+  },
+  {
+    "device_id": "NOKIA_BOX_100",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_100 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse et un courant de bias élevé, ce qui suggère un vieillissement du matériel. La température élevée de 60,79°C et la tension d'alimentation légèrement instable soutiennent également cette hypothèse.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive pour éviter une défaillance totale."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_266",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_266 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse (-27,54 dBm), un courant de bias élevé (14467,98 µA) et une température élevée (63,32°C). Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%. Les perturbations environnementales et le bridage logiciel sont également possibles, mais avec des probabilités moindres.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager un remplacement ou une maintenance si nécessaire."
+    },
+    "scenario1_confidence": 1.0,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_298",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_298 présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une température élevée. Cela suggère que les composants matériels de la box sont en train de se dégrader.",
+      "action_recommandee": "Vérifier l'état physique de la box, remplacer les composants défectueux si nécessaire et effectuer une mise à jour du firmware pour s'assurer que la box fonctionne dans des conditions optimales."
+    },
+    "scenario1_confidence": 0.993,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "dispatch_technician"
+  },
+  {
+    "device_id": "NOKIA_BOX_041",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Perturbation Environnementale",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_041 présente des signes de dégradation, notamment une puissance de réception (RxPower) faible et fluctuante, une température élevée et un courant de bias instable. Ces indicateurs suggèrent une perturbation environnementale comme cause principale, potentiellement due à des interférences électromagnétiques, des variations de température extrêmes ou une humidité élevée.",
+      "action_recommandee": "Vérifier l'environnement physique de la box, notamment la température et l'humidité, et effectuer des tests pour détecter les interférences électromagnétiques. Il est également recommandé de vérifier l'état des composants matériels et de considérer une mise à jour du firmware ou un remplacement de la box si nécessaire."
+    },
+    "scenario1_confidence": 0.999,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_070",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une RxPower en baisse progressive. La température élevée de 65,31°C pourrait également contribuer à cette dégradation.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive pour éviter une défaillance totale."
+    },
+    "scenario1_confidence": 0.946,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_162",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_162 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse (-26.71 dBm), un courant de bias élevé et instable (14472.15 µA), ainsi qu'une température élevée (67.23°C). Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%, due à l'usure des composants matériels, notamment le laser GPON et les condensateurs.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connexions et les composants, et envisager un remplacement ou une maintenance préventive pour éviter des défaillances plus graves."
+    },
+    "scenario1_confidence": 0.998,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_078",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box présente des symptômes de vieillissement du matériel, tels qu'un BiasCurrent élevé et en augmentation progressive, ainsi qu'une RxPower en baisse progressive. La température élevée de 64,02°C soutient également cette hypothèse.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive pour éviter une défaillance totale."
+    },
+    "scenario1_confidence": 0.99,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_080",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_080 présente des symptômes de dégradation, notamment un BiasCurrent élevé et en augmentation progressive, ainsi qu'une RxPower en baisse. La température est également élevée, ce qui suggère un vieillissement des composants matériels.",
+      "action_recommandee": "Vérifier l'état physique de la box et des connexions, remplacer les composants défectueux si nécessaire, et mettre à jour le firmware pour assurer une stabilité optimale."
+    },
+    "scenario1_confidence": 0.815,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "NOKIA_BOX_017",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box NOKIA_BOX_017 présente des symptômes de dégradation, notamment une puissance de réception (RxPower) en baisse (-26.61 dBm), un courant de biais (BiasCurrent) élevé et instable (14819.84 µA), ainsi qu'une température élevée (61.96°C). Ces indicateurs suggèrent principalement un vieillissement du matériel, avec une probabilité de 60%.",
+      "action_recommandee": "Vérifier l'état physique de la box, notamment les connecteurs et les composants, et envisager un remplacement ou une maintenance préventive pour éviter une défaillance totale."
+    },
+    "scenario1_confidence": 0.941,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  },
+  {
+    "device_id": "HUAWEI_BOX_186",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Vieillissement du Matériel (Hardware Aging)",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Perturbation Environnementale",
+          "probabilite": "20%"
+        },
+        "cause_2": {
+          "nom": "Vieillissement du Matériel (Hardware Aging)",
+          "probabilite": "60%"
+        },
+        "cause_3": {
+          "nom": "Bridage Logiciel",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "La box HUAWEI_BOX_186 présente des symptômes de dégradation, notamment un BiasCurrent élevé et en augmentation progressive, ainsi qu'une RxPower en baisse. Cela suggère que le matériel est en train de vieillir, ce qui nécessite une maintenance ou un remplacement.",
+      "action_recommandee": "Vérifier l'historique de maintenance de la box et planifier un remplacement ou une réparation si nécessaire, ainsi que contrôler les conditions environnementales pour éviter toute perturbation supplémentaire."
+    },
+    "scenario1_confidence": 0.867,
+    "scenario1_risk_level": "medium",
+    "scenario1_action": "monitor"
+  }
+]
