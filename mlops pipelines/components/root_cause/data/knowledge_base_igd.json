@@ -1,0 +1,93 @@
+[
+  {
+    "Cause": "Line Degradation",
+    "Indicators": [
+      "attenuation_down_db > 45 dB",
+      "snr_margin_down_db < 12 dB",
+      "downstream_curr_rate_kbps << downstream_max_rate_kbps",
+      "crc_errors_total > 100"
+    ],
+    "Description": "Dégradation physique de la ligne DSL causée par la distance excessive entre le DSLAM et le modem IGD, câblage téléphonique vétuste ou de mauvaise qualité, connecteurs oxydés ou mal sertis. L'atténuation élevée réduit drastiquement le débit réel par rapport au débit maximum théorique. Signature : attenuation_down_db > 45 dB avec downstream_curr_rate_kbps très inférieur à downstream_max_rate_kbps."
+  },
+  {
+    "Cause": "High Interference / Noise",
+    "Indicators": [
+      "snr_margin_down_db < 6 dB",
+      "crc_errors_total > 200",
+      "downstream_curr_rate_kbps très variable et instable",
+      "attenuation_down_db stable mais SNR très dégradé"
+    ],
+    "Description": "Interférences électromagnétiques ou bruit électrique sur la paire de cuivre. Sources : appareils électroménagers, éclairage fluorescent, lignes électriques parallèles, téléphones DECT mal filtrés. Le snr_margin_down_db très bas provoque des erreurs CRC massives et des déconnexions fréquentes. Différent de la dégradation de ligne car attenuation_down_db reste normale mais le bruit est élevé."
+  },
+  {
+    "Cause": "Crosstalk / Saturation",
+    "Indicators": [
+      "snr_margin_down_db < 10 dB",
+      "crc_errors_total > 50",
+      "downstream_curr_rate_kbps < 50% de downstream_max_rate_kbps",
+      "Dégradation corrélée aux heures de pointe"
+    ],
+    "Description": "Diaphonie (crosstalk) entre paires de cuivre dans le même câble téléphonique. Quand plusieurs lignes DSL voisines transmettent simultanément, elles s'interfèrent mutuellement. Saturation du DSLAM ou du nœud de raccordement abonné. Signature : snr_margin_down_db dégradé avec crc_errors_total élevé et downstream_curr_rate_kbps inférieur à 50% du downstream_max_rate_kbps."
+  },
+  {
+    "Cause": "Configuration / Ports Overload",
+    "Indicators": [
+      "downstream_curr_rate_kbps << downstream_max_rate_kbps",
+      "snr_margin_down_db normale (> 12 dB)",
+      "attenuation_down_db normale (< 40 dB)",
+      "crc_errors_total faible (< 50)"
+    ],
+    "Description": "Problème de configuration réseau ou surcharge du port DSLAM. Le profil DSL mal configuré limite artificiellement le débit. Port DSLAM surchargé avec trop d'abonnés actifs simultanément. La ligne physique est saine (snr_margin_down_db et attenuation_down_db normaux, crc_errors_total faible) mais downstream_curr_rate_kbps est bridé par la configuration réseau."
+  },
+  {
+    "Cause": "Micro-interruptions / Instabilité Synchronisation",
+    "Indicators": [
+      "crc_errors_total > 500",
+      "snr_margin_down_db fluctuant",
+      "downstream_curr_rate_kbps très instable",
+      "downstream_max_rate_kbps changeant fréquemment"
+    ],
+    "Description": "Instabilité de la synchronisation DSL causant des micro-coupures fréquentes. Chaque reconnexion réinitialise la négociation du downstream_max_rate_kbps. Causes : filtre ADSL défectueux ou absent, téléphone analogique mal isolé, câblage interne de mauvaise qualité. Signature principale : crc_errors_total très élevé (> 500) avec downstream_curr_rate_kbps très instable."
+  },
+  {
+    "Cause": "Atténuation Excessive / Distance DSLAM",
+    "Indicators": [
+      "attenuation_down_db > 55 dB",
+      "downstream_max_rate_kbps < 4000 kbps",
+      "snr_margin_down_db < 8 dB",
+      "downstream_curr_rate_kbps proche de downstream_max_rate_kbps"
+    ],
+    "Description": "Distance trop grande entre le modem IGD et le DSLAM. Au-delà de 4-5 km, attenuation_down_db devient si forte que downstream_max_rate_kbps est très limité. Contrairement à la dégradation de ligne, downstream_curr_rate_kbps est proche de downstream_max_rate_kbps (pas de marge à exploiter). L'atténuation est stable et permanente."
+  },
+  {
+    "Cause": "Bridage Opérateur / Profil DSL Limité",
+    "Indicators": [
+      "snr_margin_down_db excellente (> 20 dB)",
+      "attenuation_down_db faible (< 25 dB)",
+      "crc_errors_total très faible (< 10)",
+      "downstream_curr_rate_kbps limité malgré bonne ligne",
+      "downstream_max_rate_kbps artificiellement bas"
+    ],
+    "Description": "Limitation volontaire du débit par l'opérateur selon l'offre commerciale souscrite. Profil DSL configuré avec des limites basses. Toutes les métriques physiques sont excellentes : snr_margin_down_db élevé, attenuation_down_db faible, crc_errors_total quasi nul. Mais downstream_curr_rate_kbps reste bridé logiciellement malgré une ligne physiquement parfaite."
+  },
+  {
+    "Cause": "Vieillissement Matériel IGD",
+    "Indicators": [
+      "crc_errors_total croissant progressivement",
+      "snr_margin_down_db en baisse progressive",
+      "downstream_curr_rate_kbps en dégradation progressive",
+      "downstream_max_rate_kbps diminuant à chaque reconnexion"
+    ],
+    "Description": "Dégradation progressive des composants matériels du modem IGD. Circuits DSL vieillissants moins performants pour maintenir la synchronisation. Signature : dégradation graduelle sur plusieurs semaines, pas soudaine. crc_errors_total augmente progressivement, snr_margin_down_db baisse lentement, downstream_curr_rate_kbps se dégrade semaine après semaine."
+  },
+  {
+    "Cause": "Problème Infrastructure Réseau Opérateur",
+    "Indicators": [
+      "snr_margin_down_db dégradé sans cause locale",
+      "crc_errors_total élevé sur plusieurs abonnés simultanément",
+      "downstream_curr_rate_kbps faible indépendamment de l'équipement",
+      "attenuation_down_db normale mais performances dégradées"
+    ],
+    "Description": "Problème sur l'infrastructure réseau de l'opérateur affectant plusieurs abonnés simultanément. DSLAM défaillant ou mal configuré, câble souterrain endommagé entre le NRA et les abonnés. Se distingue des problèmes individuels car plusieurs IGD du même nœud sont affectés en même temps. snr_margin_down_db et crc_errors_total dégradés sans explication côté abonné."
+  }
+]
