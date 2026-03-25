@@ -533,7 +533,8 @@ def run_full_pipeline(csv_path: str, scenario1_json_path: str, output_path: str)
     success = 0
     errors  = 0
 
-    for i, prediction in enumerate(scenario1):
+    # for i, prediction in enumerate(scenario1):
+    for i, prediction in enumerate(scenario1[:3]):  # Limiter à 3 box pour les tests initiaux
         device_id       = prediction["device_id"]
         predicted_class = prediction["prediction"]["predicted_class"]
         confidence      = prediction["prediction"]["confidence"]

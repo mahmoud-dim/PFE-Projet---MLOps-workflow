@@ -1,0 +1,83 @@
+[
+  {
+    "device_id": "IGD_224",
+    "predicted_class": "degraded",
+    "health_label": "Dégradé",
+    "diagnostic": {
+      "cause_principale": "Cause 6 : Atténuation Excessive / Distance DSLAM",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Cause 1 : Line Degradation",
+          "probabilite": "21.4%"
+        },
+        "cause_2": {
+          "nom": "Cause 6 : Atténuation Excessive / Distance DSLAM",
+          "probabilite": "51.6%"
+        },
+        "cause_3": {
+          "nom": "Cause 4 : Configuration / Ports Overload",
+          "probabilite": "27.0%"
+        }
+      },
+      "explication": "L'atténuation descendante est élevée à 36.11 dB, ce qui est supérieur à 55 dB, ce qui est considéré comme excessive. La distance entre le modem IGD et le DSLAM est probablement trop grande. De plus, le débit descendant actuel est faible par rapport au débit descendant maximum, ce qui suggère également que la ligne est dégradée.",
+      "action_recommandee": "Vérifier la distance entre le modem IGD et le DSLAM et ajuster la configuration si nécessaire"
+    },
+    "scenario1_confidence": 0.516,
+    "scenario1_risk_level": "low",
+    "scenario1_action": "no_action"
+  },
+  {
+    "device_id": "IGD_294",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Cause 1: Line Degradation",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Cause 1: Line Degradation",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Cause 2: High Interference / Noise",
+          "probabilite": "20%"
+        },
+        "cause_3": {
+          "nom": "Cause 5: Micro-interruptions / Instabilité Synchronisation",
+          "probabilite": "20%"
+        }
+      },
+      "explication": "L'atténuation descendante de 22,9 dB est élevée et le débit descendant actuel est très inférieur au débit descendant maximum, ce qui suggère une dégradation physique de la ligne.",
+      "action_recommandee": "Effectuer un audit du câblage téléphonique et vérifier les connecteurs pour détecter toute défaillance ou usure."
+    },
+    "scenario1_confidence": 0.474,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "no_action"
+  },
+  {
+    "device_id": "IGD_043",
+    "predicted_class": "critical",
+    "health_label": "Critique",
+    "diagnostic": {
+      "cause_principale": "Cause 1: Line Degradation",
+      "probabilites": {
+        "cause_1": {
+          "nom": "Cause 1: Line Degradation",
+          "probabilite": "60%"
+        },
+        "cause_2": {
+          "nom": "Cause 2: High Interference / Noise",
+          "probabilite": "30%"
+        },
+        "cause_3": {
+          "nom": "Cause 5: Micro-interruptions / Instabilité Synchronisation",
+          "probabilite": "10%"
+        }
+      },
+      "explication": "L'atténuation descendante (21,24 dB) est supérieure à 45 dB, ce qui indique une dégradation physique de la ligne. Le débit descendant actuel (2758,0 kbps) est également très inférieur au débit descendant maximum (22668,0 kbps), ce qui confirme la dégradation de la ligne. Enfin, les erreurs CRC totales (579,0) sont également élevées, ce qui suggère que la ligne est soumise à des interférences électromagnétiques.",
+      "action_recommandee": "Effectuer une analyse des câbles et vérifier l'état des connecteurs et des câbles téléphoniques."
+    },
+    "scenario1_confidence": 0.507,
+    "scenario1_risk_level": "high",
+    "scenario1_action": "no_action"
+  }
+]

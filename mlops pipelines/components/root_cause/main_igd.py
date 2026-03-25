@@ -189,12 +189,18 @@ def rag_diagnosis_single(device_id, predicted_class, confidence, df_metrics):
         end    = raw_response.rfind("}") + 1
         result = json.loads(raw_response[start:end])
 
-        # Afficher les 3 causes
+        # # Afficher les 3 causes
+        # probs = result["diagnostic"]["probabilites"]
+        # print(f"  ✅ Cause principale : {result['diagnostic']['cause_principale']}")
+        # print(f"     ├─ {probs['cause_1']['nom']} : {probs['cause_1']['probabilite']}")
+        # print(f"     ├─ {probs['cause_2']['nom']} : {probs['cause_2']['probabilite']}")
+        # print(f"     └─ {probs['cause_3']['nom']} : {probs['cause_3']['probabilite']}")
+
+        # Afficher les causes
         probs = result["diagnostic"]["probabilites"]
         print(f"  ✅ Cause principale : {result['diagnostic']['cause_principale']}")
-        print(f"     ├─ {probs['cause_1']['nom']} : {probs['cause_1']['probabilite']}")
-        print(f"     ├─ {probs['cause_2']['nom']} : {probs['cause_2']['probabilite']}")
-        print(f"     └─ {probs['cause_3']['nom']} : {probs['cause_3']['probabilite']}")
+        for key, val in probs.items():
+            print(f"     ├─ {val.get('nom', '?')} : {val.get('probabilite', '?')}")
 
         return result
 
@@ -223,7 +229,8 @@ def run_full_pipeline(csv_path: str, scenario1_json_path: str, output_path: str)
     success = 0
     errors  = 0
 
-    for i, prediction in enumerate(scenario1):
+    # for i, prediction in enumerate(scenario1):
+    for i, prediction in enumerate(scenario1[:3]):
         device_id       = prediction["device_id"]
         predicted_class = prediction["prediction"]["predicted_class"]
         confidence      = prediction["prediction"]["confidence"]
@@ -263,8 +270,8 @@ def run_full_pipeline(csv_path: str, scenario1_json_path: str, output_path: str)
 # ============================================================
 if __name__ == "__main__":
 
-    CSV_PATH       = os.path.join(BASE_DIR, "../../datasets/processed/igd_scenario_1.csv")
-    SCENARIO1_PATH = os.path.join(BASE_DIR, "../healthscore_training/evaluate/igd_operational_predictions.json")
+    CSV_PATH       = os.path.join(BASE_DIR, "../../datasets/processed/IGD_scenario_1.csv")
+    SCENARIO1_PATH = os.path.join(BASE_DIR, "../healthscore_training/evaluate/IGD_operational_predictions.json")
     OUTPUT_PATH    = os.path.join(BASE_DIR, "data/diagnostic_results_igd.json")
 
     results = run_full_pipeline(
@@ -279,9 +286,14 @@ if __name__ == "__main__":
     for r in results:
         if "diagnostic" in r:
             probs = r["diagnostic"]["probabilites"]
-            print(
-                f"  {r['device_id']:20s} [{r['predicted_class'].upper():8s}] → "
-                f"{probs['cause_1']['nom']} ({probs['cause_1']['probabilite']}) | "
-                f"{probs['cause_2']['nom']} ({probs['cause_2']['probabilite']}) | "
-                f"{probs['cause_3']['nom']} ({probs['cause_3']['probabilite']})"
+            # print(
+            #     f"  {r['device_id']:20s} [{r['predicted_class'].upper():8s}] → "
+            #     f"{probs['cause_1']['nom']} ({probs['cause_1']['probabilite']}) | "
+            #     f"{probs['cause_2']['nom']} ({probs['cause_2']['probabilite']}) | "
+            #     f"{probs['cause_3']['nom']} ({probs['cause_3']['probabilite']})"
+            # )
+            causes_str = " | ".join(
+                f"{v.get('nom','?')} ({v.get('probabilite','?')})"
+                for v in probs.values()
             )
+            print(f"  {r['device_id']:20s} [{r['predicted_class'].upper():8s}] → {causes_str}")
