@@ -1,0 +1,8 @@
+installation de ollama 
+//curl -fsSL https: //ollama.com/install.sh | sh
+
+#verification l'installation de ollama 
+ollama --version
+
+#verifie que le serveur tourne 
+systemctl status ollama

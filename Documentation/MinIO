@@ -1,0 +1,64 @@
++ Credentiels MinIO: 
+pfe-01@pfe01:~/Bureau/PFE-Projet---MLOps-workflow$ kubectl get secret mlpipeline-minio-artifact -n kubeflow \
+  -o jsonpath='{.data.accesskey}' | base64 -d && echo
+minio
+pfe-01@pfe01:~/Bureau/PFE-Projet---MLOps-workflow$ kubectl get secret mlpipeline-minio-artifact -n kubeflow \
+  -o jsonpath='{.data.accesskey}' | base64 -d && echo
+minio
+pfe-01@pfe01:~/Bureau/PFE-Projet---MLOps-workflow$
+
+Access Key : minio
+Secret Key : minio
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Installer le client MinIO (mc) : 
+wget https://dl.min.io/client/mc/release/linux-amd64/mc
+chmod +x mc
+sudo mv mc /usr/local/bin/
+
++ verifier : 
+mc --version
+
++ trouver l'URL MinIO : 
+kubectl get svc -n kubeflow | grep minio 
+10.98.20.211:9000
+
++ Configurer mc pour se connecter à MinIO: 
+mc alias set kubeflow http://10.98.20.211:9000 minio minio
+
++ erreur, on doit recuperer le vrai : 
+kubectl get secret mlpipeline-minio-artifact -n kubeflow \
+  -o jsonpath='{.data.secretkey}' | base64 -d && echo
+
+minio123
+
++ configurer encore mc pour se connecter a MinIO : 
+mc alias set kubeflow http://10.98.20.211:9000 minio minio123
+
++verifier : 
+mc ls kubeflow
+
+-> parfait, connecté a MinIO 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Créer des buckets : 
+mc mb kubeflow/datasets
+mc mb kubeflow/knowledge-base
+mc mb kubeflow/models
+mc mb kubeflow/results
+
++verification: 
+mc ls kubeflow 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ uploader les fichiers dans MinIO : (+2: raw dataset / +2: knowledge base ) 
+mc cp "/home/pfe-01/Bureau/PFE-Projet---MLOps-workflow/mlops pipelines/datasets/raw/igd_realistic.csv" kubeflow/datasets/raw/
+mc cp "/home/pfe-01/Bureau/PFE-Projet---MLOps-workflow/mlops pipelines/datasets/raw/fibre_combined_realistic.csv" kubeflow/datasets/raw/
+
+mc cp "/home/pfe-01/Bureau/PFE-Projet---MLOps-workflow/mlops pipelines/components/root_cause/data/knowledge_base_huawei_nokia.json" kubeflow/knowledge-base/
+mc cp "/home/pfe-01/Bureau/PFE-Projet---MLOps-workflow/mlops pipelines/components/root_cause/data/knowledge_base_igd.json" kubeflow/knowledge-base/
+

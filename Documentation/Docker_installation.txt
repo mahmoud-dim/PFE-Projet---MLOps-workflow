@@ -1,0 +1,38 @@
+# 1. Mise à jour la VM
+sudo apt update && sudo apt upgrade -y
+
+# 2. installer les Dépendances
+sudo apt install -y ca-certificates curl gnupg
+
+# 3. ajouter Clé officielle Docker
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# 4. Ajouter le Repository Docker
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# 5. Installer Docker
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io \
+  docker-buildx-plugin docker-compose-plugin
+
+# 7. Vérifier
+docker --version
+docker run hello-world
+
+# 8. Ajouter au groupe
+sudo usermod -aG docker $USER
+
+# Option B — permanent (recommandé)
+exit
+# puis reconnecte-toi via SSH
+ssh pfe-01@ip-de-la-vm
+
+# 3. Tester
+docker ps
+docker --version
