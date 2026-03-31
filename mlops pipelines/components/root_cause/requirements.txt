@@ -1,0 +1,6 @@
+pandas==2.3.3
+numpy==2.2.6
+langchain-ollama==1.0.1
+langchain-core==1.2.18
+faiss-cpu==1.13.2
+boto3
