@@ -28,9 +28,12 @@ BUCKET_DATASETS  = "datasets"
 BUCKET_MODELS    = "models"
 
 INPUT_KEY      = "processed/huawei_nokia_scenario_1.csv"
-MODEL_KEY      = "huawei_nokia_healthscore.pkl"
-DATA_SPLIT_KEY = "huawei_nokia_data_split.pkl"
-TRAIN_INFO_KEY = "huawei_nokia_train_info.json"
+# MODEL_KEY      = "huawei_nokia_healthscore.pkl"
+# DATA_SPLIT_KEY = "huawei_nokia_data_split.pkl"
+# TRAIN_INFO_KEY = "huawei_nokia_train_info.json"
+MODEL_KEY      = "scenario1/huawei_nokia_healthscore.pkl"
+DATA_SPLIT_KEY = "scenario1/huawei_nokia_data_split.pkl"
+TRAIN_INFO_KEY = "scenario1/huawei_nokia_train_info.json"
 
 # Hyperparamètres
 RANDOM_STATE      = 42

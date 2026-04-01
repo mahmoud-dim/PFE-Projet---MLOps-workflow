@@ -25,9 +25,13 @@ BUCKET_DATASETS  = "datasets"
 BUCKET_MODELS    = "models"
 
 INPUT_KEY      = "processed/IGD_scenario_1.csv"
-MODEL_KEY      = "IGD_healthscore.pkl"
-DATA_SPLIT_KEY = "IGD_data_split.pkl"
-TRAIN_INFO_KEY = "IGD_train_info.json"
+# MODEL_KEY      = "IGD_healthscore.pkl"
+# DATA_SPLIT_KEY = "IGD_data_split.pkl"
+# TRAIN_INFO_KEY = "IGD_train_info.json"
+
+MODEL_KEY      = "scenario1/IGD_healthscore.pkl"
+DATA_SPLIT_KEY = "scenario1/IGD_data_split.pkl"
+TRAIN_INFO_KEY = "scenario1/IGD_train_info.json"
 
 RANDOM_STATE      = 42
 TEST_SIZE         = 0.2
