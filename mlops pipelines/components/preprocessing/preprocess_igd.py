@@ -13,7 +13,8 @@ from io import StringIO
 # ----------------------------------------
 # Configuration MinIO
 # ----------------------------------------
-MINIO_ENDPOINT   = os.getenv("MINIO_ENDPOINT",   "http://minio-service.kubeflow:9000")
+# MINIO_ENDPOINT   = os.getenv("MINIO_ENDPOINT",   "http://minio-service.kubeflow:9000")
+MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "http://10.98.20.211:9000")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "minio")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minio123")
 BUCKET_DATASETS  = "datasets"
