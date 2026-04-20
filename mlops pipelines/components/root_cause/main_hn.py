@@ -460,7 +460,8 @@ def run_full_pipeline():
     success = 0
     errors  = 0
 
-    for i, prediction in enumerate(scenario1):
+    # for i, prediction in enumerate(scenario1):
+    for i, prediction in enumerate(scenario1[:3]):
         device_id       = prediction["device_id"]
         predicted_class = prediction["prediction"]["predicted_class"]
         confidence      = prediction["prediction"]["confidence"]

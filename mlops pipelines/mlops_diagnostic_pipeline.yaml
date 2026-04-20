@@ -1,0 +1,264 @@
+# PIPELINE DEFINITION
+# Name: mlops-gpon-dsl-diagnostic
+# Description: Pipeline MLOps complet — GPON/DSL Diagnostic
+components:
+  comp-healthscore-hn:
+    executorLabel: exec-healthscore-hn
+  comp-healthscore-igd:
+    executorLabel: exec-healthscore-igd
+  comp-prediction-proactive-hn:
+    executorLabel: exec-prediction-proactive-hn
+  comp-prediction-proactive-igd:
+    executorLabel: exec-prediction-proactive-igd
+  comp-preprocessing-hn:
+    executorLabel: exec-preprocessing-hn
+  comp-preprocessing-igd:
+    executorLabel: exec-preprocessing-igd
+  comp-root-cause-hn:
+    executorLabel: exec-root-cause-hn
+  comp-root-cause-igd:
+    executorLabel: exec-root-cause-igd
+deploymentSpec:
+  executors:
+    exec-healthscore-hn:
+      container:
+        args:
+        - python train_huawei_nokia.py && python evaluate_huawei_nokia.py
+        command:
+        - bash
+        - -c
+        env:
+        - name: MINIO_ENDPOINT
+          value: http://10.98.20.211:9000
+        - name: MINIO_ACCESS_KEY
+          value: minio
+        - name: MINIO_SECRET_KEY
+          value: minio123
+        image: localhost:5000/healthscore:v1
+        resources:
+          cpuLimit: 1.0
+          memoryLimit: 2.0
+    exec-healthscore-igd:
+      container:
+        args:
+        - python train_igd.py && python evaluate_igd.py
+        command:
+        - bash
+        - -c
+        env:
+        - name: MINIO_ENDPOINT
+          value: http://10.98.20.211:9000
+        - name: MINIO_ACCESS_KEY
+          value: minio
+        - name: MINIO_SECRET_KEY
+          value: minio123
+        image: localhost:5000/healthscore:v1
+        resources:
+          cpuLimit: 1.0
+          memoryLimit: 2.0
+    exec-prediction-proactive-hn:
+      container:
+        args:
+        - python preprocess_hn_scenario3.py && python scenario3_hn.py
+        command:
+        - bash
+        - -c
+        env:
+        - name: MINIO_ENDPOINT
+          value: http://10.98.20.211:9000
+        - name: MINIO_ACCESS_KEY
+          value: minio
+        - name: MINIO_SECRET_KEY
+          value: minio123
+        image: localhost:5000/prediction-proactive:v1
+        resources:
+          cpuLimit: 1.0
+          memoryLimit: 2.0
+    exec-prediction-proactive-igd:
+      container:
+        args:
+        - python preprocess_igd_scenario3.py && python scenario3_igd.py
+        command:
+        - bash
+        - -c
+        env:
+        - name: MINIO_ENDPOINT
+          value: http://10.98.20.211:9000
+        - name: MINIO_ACCESS_KEY
+          value: minio
+        - name: MINIO_SECRET_KEY
+          value: minio123
+        image: localhost:5000/prediction-proactive:v1
+        resources:
+          cpuLimit: 1.0
+          memoryLimit: 2.0
+    exec-preprocessing-hn:
+      container:
+        args:
+        - preprocess_huawei_nokia.py
+        command:
+        - python
+        env:
+        - name: MINIO_ENDPOINT
+          value: http://10.98.20.211:9000
+        - name: MINIO_ACCESS_KEY
+          value: minio
+        - name: MINIO_SECRET_KEY
+          value: minio123
+        image: localhost:5000/preprocessing:v1
+        resources:
+          cpuLimit: 1.0
+          memoryLimit: 2.0
+    exec-preprocessing-igd:
+      container:
+        args:
+        - preprocess_igd.py
+        command:
+        - python
+        env:
+        - name: MINIO_ENDPOINT
+          value: http://10.98.20.211:9000
+        - name: MINIO_ACCESS_KEY
+          value: minio
+        - name: MINIO_SECRET_KEY
+          value: minio123
+        image: localhost:5000/preprocessing:v1
+        resources:
+          cpuLimit: 1.0
+          memoryLimit: 2.0
+    exec-root-cause-hn:
+      container:
+        args:
+        - python build_faiss_index_hn.py && python main_hn.py
+        command:
+        - bash
+        - -c
+        env:
+        - name: MINIO_ENDPOINT
+          value: http://10.98.20.211:9000
+        - name: MINIO_ACCESS_KEY
+          value: minio
+        - name: MINIO_SECRET_KEY
+          value: minio123
+        - name: OLLAMA_BASE_URL
+          value: http://localhost:11434
+        image: localhost:5000/root-cause:v1
+        resources:
+          cpuLimit: 1.0
+          memoryLimit: 2.0
+    exec-root-cause-igd:
+      container:
+        args:
+        - python build_faiss_index_igd.py && python main_igd.py
+        command:
+        - bash
+        - -c
+        env:
+        - name: MINIO_ENDPOINT
+          value: http://10.98.20.211:9000
+        - name: MINIO_ACCESS_KEY
+          value: minio
+        - name: MINIO_SECRET_KEY
+          value: minio123
+        - name: OLLAMA_BASE_URL
+          value: http://localhost:11434
+        image: localhost:5000/root-cause:v1
+        resources:
+          cpuLimit: 1.0
+          memoryLimit: 2.0
+pipelineInfo:
+  description: "Pipeline MLOps complet \u2014 GPON/DSL Diagnostic"
+  name: mlops-gpon-dsl-diagnostic
+root:
+  dag:
+    tasks:
+      healthscore-hn:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-healthscore-hn
+        dependentTasks:
+        - preprocessing-hn
+        retryPolicy:
+          backoffDuration: 0s
+          backoffFactor: 2.0
+          backoffMaxDuration: 3600s
+          maxRetryCount: 1
+        taskInfo:
+          name: "HealthScore + Gatekeeping \u2014 HN"
+      healthscore-igd:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-healthscore-igd
+        dependentTasks:
+        - preprocessing-igd
+        retryPolicy:
+          backoffDuration: 0s
+          backoffFactor: 2.0
+          backoffMaxDuration: 3600s
+          maxRetryCount: 1
+        taskInfo:
+          name: "HealthScore + Gatekeeping \u2014 IGD"
+      prediction-proactive-hn:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-prediction-proactive-hn
+        dependentTasks:
+        - root-cause-hn
+        taskInfo:
+          name: "Prediction Proactive \u2014 HN"
+      prediction-proactive-igd:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-prediction-proactive-igd
+        dependentTasks:
+        - root-cause-igd
+        taskInfo:
+          name: "Prediction Proactive \u2014 IGD"
+      preprocessing-hn:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-preprocessing-hn
+        retryPolicy:
+          backoffDuration: 0s
+          backoffFactor: 2.0
+          backoffMaxDuration: 3600s
+          maxRetryCount: 2
+        taskInfo:
+          name: "Preprocessing \u2014 Huawei/Nokia"
+      preprocessing-igd:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-preprocessing-igd
+        retryPolicy:
+          backoffDuration: 0s
+          backoffFactor: 2.0
+          backoffMaxDuration: 3600s
+          maxRetryCount: 2
+        taskInfo:
+          name: "Preprocessing \u2014 IGD"
+      root-cause-hn:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-root-cause-hn
+        dependentTasks:
+        - healthscore-hn
+        taskInfo:
+          name: "Root Cause RAG \u2014 HN"
+      root-cause-igd:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-root-cause-igd
+        dependentTasks:
+        - healthscore-igd
+        taskInfo:
+          name: "Root Cause RAG \u2014 IGD"
+schemaVersion: 2.1.0
+sdkVersion: kfp-2.8.0
