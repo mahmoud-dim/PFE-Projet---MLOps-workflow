@@ -1,0 +1,41 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  MINIO_ENDPOINT: "http://10.98.20.211:9000"
+  MINIO_ACCESS_KEY: "minio"
+  MINIO_SECRET_KEY: "minio123"
+
+build_images:
+  stage: build
+  tags:
+    - mlops-runner
+  script:
+    - docker build -t localhost:5000/preprocessing:latest "./mlops pipelines/components/preprocessing"
+    - docker push localhost:5000/preprocessing:latest
+    - docker build -t localhost:5000/training:latest "./mlops pipelines/components/healthscore_training"
+    - docker push localhost:5000/training:latest
+    - docker build -t localhost:5000/rag-diagnostic:latest "./mlops pipelines/components/root_cause"
+    - docker push localhost:5000/rag-diagnostic:latest
+    - docker build -t localhost:5000/predict-scenario3:latest "./mlops pipelines/components/predicition_proactive"
+    - docker push localhost:5000/predict-scenario3:latest
+
+test_gatekeeping:
+  stage: test
+  tags:
+    - mlops-runner
+  script:
+    - cd "./mlops pipelines/components/healthscore_training"
+    - python3 evaluate_huawei_nokia.py
+    - python3 evaluate_igd.py
+
+deploy_kubeflow:
+  stage: deploy
+  tags:
+    - mlops-runner
+  script:
+    - echo "Deploy pipeline Kubeflow - à compléter sprint suivant"
+  only:
+    - main
