@@ -36,6 +36,6 @@ deploy_kubeflow:
   tags:
     - mlops-runner
   script:
-    - echo "Deploy pipeline Kubeflow - à compléter sprint suivant"
+    - echo "Deploy pipeline Kubeflow - a completer sprint suivant"
   only:
     - main
