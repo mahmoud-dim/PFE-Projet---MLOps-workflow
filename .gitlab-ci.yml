@@ -11,7 +11,7 @@ variables:
 build_images:
   stage: build
   tags:
-    - mlops-runner
+    - mlops
   script:
     - docker build -t localhost:5000/preprocessing:latest "./mlops pipelines/components/preprocessing"
     - docker push localhost:5000/preprocessing:latest
@@ -25,7 +25,7 @@ build_images:
 test_gatekeeping:
   stage: test
   tags:
-    - mlops-runner
+    - mlops
   script:
     - cd "./mlops pipelines/components/healthscore_training"
     - python3 evaluate_huawei_nokia.py
@@ -34,7 +34,7 @@ test_gatekeeping:
 deploy_kubeflow:
   stage: deploy
   tags:
-    - mlops-runner
+    - mlops
   script:
     - echo "Deploy pipeline Kubeflow - a completer sprint suivant"
   only:
