@@ -499,7 +499,7 @@ def run_full_pipeline():
     )
 
     print(f"\n{'='*60}")
-    print(f"✅ PIPELINE IGD TERMINÉ")
+    print("✅ PIPELINE IGD TERMINÉ")
     print(f"{'='*60}")
     print(f"  Équipements diagnostiqués : {success}")
     print(f"  Erreurs                   : {errors}")
@@ -510,7 +510,7 @@ def run_full_pipeline():
 if __name__ == "__main__":
     results = run_full_pipeline()
 
-    print(f"\n📊 RÉSUMÉ DES DIAGNOSTICS IGD :")
+    print("\n📊 RÉSUMÉ DES DIAGNOSTICS IGD :")
     print(f"{'─'*60}")
     for r in results:
         if "diagnostic" in r:

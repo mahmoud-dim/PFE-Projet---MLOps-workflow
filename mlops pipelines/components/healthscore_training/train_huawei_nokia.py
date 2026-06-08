@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import pickle
 import json
 import os
@@ -69,7 +68,7 @@ def load_processed_data_from_minio():
 
 
 def save_model_to_minio(model):
-    print(f"\n💾 Saving model to MinIO...")
+    print("\n💾 Saving model to MinIO...")
     print(f"   Bucket : {BUCKET_MODELS}")
     print(f"   Key    : {MODEL_KEY}")
 
@@ -82,7 +81,7 @@ def save_model_to_minio(model):
 
 
 def save_data_split_to_minio(X_train, X_test, y_train, y_test, device_id_train, device_id_test):
-    print(f"\n💾 Saving data split to MinIO...")
+    print("\n💾 Saving data split to MinIO...")
     print(f"   Bucket : {BUCKET_MODELS}")
     print(f"   Key    : {DATA_SPLIT_KEY}")
 
@@ -104,7 +103,7 @@ def save_data_split_to_minio(X_train, X_test, y_train, y_test, device_id_train, 
 
 
 def save_train_info_to_minio(model, X_train):
-    print(f"\n💾 Saving training info to MinIO...")
+    print("\n💾 Saving training info to MinIO...")
     print(f"   Bucket : {BUCKET_MODELS}")
     print(f"   Key    : {TRAIN_INFO_KEY}")
 
@@ -153,7 +152,7 @@ def split_features_target(df):
 
     print(f"   Features shape: {X.shape}")
     print(f"   Target shape: {y.shape}")
-    print(f"\n   Class distribution:")
+    print("\n   Class distribution:")
     print(y.value_counts().sort_index())
 
     return X, y, device_ids
@@ -181,11 +180,11 @@ def split_train_test(X, y, device_ids):
 
 def train_random_forest(X_train, y_train):
     print("\n🌲 Training Random Forest Classifier...")
-    print(f"   Hyperparameters:")
+    print("   Hyperparameters:")
     print(f"     - n_estimators:      {N_ESTIMATORS}")
     print(f"     - max_depth:         {MAX_DEPTH}")
     print(f"     - min_samples_split: {MIN_SAMPLES_SPLIT}")
-    print(f"     - class_weight:      balanced")
+    print("     - class_weight:      balanced")
     print(f"     - random_state:      {RANDOM_STATE}")
 
     model = RandomForestClassifier(

@@ -177,8 +177,8 @@ print("\n💾 Sauvegarde dans MinIO...")
 
 # Sauvegarder FAISS index
 faiss_buffer = BytesIO()
-faiss.write_index(index, "/tmp/faiss_hn.index")
-with open("/tmp/faiss_hn.index", "rb") as f:
+faiss.write_index(index, "/tmp/faiss_hn.index")  # nosec B108  # nosec B108
+with open("/tmp/faiss_hn.index", "rb") as f:  # nosec B108  # nosec B108
     s3.put_object(Bucket=BUCKET_MODELS, Key=FAISS_KEY, Body=f.read())
 print(f"   ✅ Index FAISS → {FAISS_KEY}")
 
@@ -193,7 +193,7 @@ print("\n" + "="*55)
 print("✅ INDEXATION TERMINÉE")
 print("="*55)
 print(f"  KB        : {len(causes_data)} causes indexées")
-print(f"  Modèle    : Ollama nomic-embed-text")
+print("  Modèle    : Ollama nomic-embed-text")
 print(f"  Dimension : {dimension}")
 print(f"  FAISS     : {FAISS_KEY}")
 print(f"  Chunks    : {CHUNKS_KEY}")

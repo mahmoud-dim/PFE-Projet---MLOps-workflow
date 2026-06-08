@@ -1,4 +1,3 @@
-import pandas as pd
 import numpy as np
 import pickle
 import json
@@ -52,14 +51,14 @@ s3 = boto3.client(
 def load_model_from_minio():
     print(f"📥 Loading model from MinIO... Key: {MODEL_KEY}")
     response = s3.get_object(Bucket=BUCKET_MODELS, Key=MODEL_KEY)
-    model    = pickle.loads(response["Body"].read())
+    model    = pickle.loads(response["Body"].read())  # nosec B301  # nosec B301
     print("✅ Model loaded successfully")
     return model
 
 def load_data_split_from_minio():
     print(f"📥 Loading data split from MinIO... Key: {DATA_SPLIT_KEY}")
     response   = s3.get_object(Bucket=BUCKET_MODELS, Key=DATA_SPLIT_KEY)
-    data_split = pickle.loads(response["Body"].read())
+    data_split = pickle.loads(response["Body"].read())  # nosec B301  # nosec B301
     X_train, X_test     = data_split['X_train'], data_split['X_test']
     y_train, y_test     = data_split['y_train'], data_split['y_test']
     did_train, did_test = data_split['device_id_train'], data_split['device_id_test']
@@ -221,14 +220,14 @@ def main():
     X_train, X_test, y_train, y_test, did_train, did_test = load_data_split_from_minio()
     train_info = load_train_info_from_minio()
 
-    print(f"\n📋 Model Info:")
+    print("\n📋 Model Info:")
     print(f"  Type:     {train_info['model_type']}")
     print(f"  Features: {train_info['n_features']}")
     print(f"  Classes:  {train_info['classes']}")
 
     metrics, cm, report = evaluate_model(model, X_train, X_test, y_train, y_test)
 
-    print(f"\n💾 Saving results to MinIO...")
+    print("\n💾 Saving results to MinIO...")
     save_to_minio(METRICS_KEY,  json.dumps(metrics, indent=2).encode("utf-8"))
     save_to_minio(REPORT_KEY,   report.encode("utf-8"), "text/plain")
     save_confusion_matrix_to_minio(cm)

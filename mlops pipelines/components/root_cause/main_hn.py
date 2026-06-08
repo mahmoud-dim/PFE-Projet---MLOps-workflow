@@ -283,10 +283,7 @@
 import os
 import json
 import boto3
-import pickle
-import faiss
-import numpy as np
-from io import StringIO, BytesIO
+from io import StringIO
 import pandas as pd
 from langchain_ollama import OllamaLLM
 
@@ -488,7 +485,7 @@ def run_full_pipeline():
     )
 
     print(f"\n{'='*60}")
-    print(f"✅ PIPELINE TERMINÉ")
+    print("✅ PIPELINE TERMINÉ")
     print(f"{'='*60}")
     print(f"  Box diagnostiquées : {success}")
     print(f"  Erreurs            : {errors}")
@@ -499,7 +496,7 @@ def run_full_pipeline():
 if __name__ == "__main__":
     results = run_full_pipeline()
 
-    print(f"\n📊 RÉSUMÉ DES DIAGNOSTICS :")
+    print("\n📊 RÉSUMÉ DES DIAGNOSTICS :")
     print(f"{'─'*60}")
     for r in results:
         if "diagnostic" in r:

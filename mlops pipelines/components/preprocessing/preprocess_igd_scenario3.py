@@ -93,7 +93,7 @@ df_final["jours_avant_seuil"] = df_final.apply(jours_avant_seuil, axis=1)
 df_final["niveau_risque"]     = df_final.apply(niveau_risque, axis=1)
 
 # Résumé
-print(f"\n📊 RÉSUMÉ :")
+print("\n📊 RÉSUMÉ :")
 print(f"  Équipements     : {len(df_final)}")
 print(f"  Slope moyen     : {df_final['slope'].mean():.3f} dB/mesure")
 for niveau, count in df_final["niveau_risque"].value_counts().items():
@@ -106,6 +106,6 @@ df_final.to_csv(csv_buffer, index=False)
 csv_buffer.seek(0)
 s3.put_object(Bucket=BUCKET_DATASETS, Key=OUTPUT_KEY, Body=csv_buffer.getvalue().encode("utf-8"))
 
-print(f"\n✅ PREPROCESSING IGD SCÉNARIO 3 TERMINÉ")
+print("\n✅ PREPROCESSING IGD SCÉNARIO 3 TERMINÉ")
 print(f"  Output : {BUCKET_DATASETS}/{OUTPUT_KEY}")
-print(f"💡 Prochaine étape : exécuter scenario3_igd.py")
+print("💡 Prochaine étape : exécuter scenario3_igd.py")

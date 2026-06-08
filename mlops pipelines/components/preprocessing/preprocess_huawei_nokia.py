@@ -52,7 +52,7 @@ def load_data_from_minio():
 
 
 def save_data_to_minio(df):
-    print(f"\n💾 Saving processed dataset to MinIO...")
+    print("\n💾 Saving processed dataset to MinIO...")
     print(f"   Bucket : {BUCKET_DATASETS}")
     print(f"   Key    : {OUTPUT_KEY}")
 
@@ -66,7 +66,7 @@ def save_data_to_minio(df):
         Body   = csv_buffer.getvalue().encode("utf-8")
     )
 
-    print(f"   ✅ Saved successfully")
+    print("   ✅ Saved successfully")
     print(f"   Final shape: {df.shape}")
 
 
@@ -128,7 +128,7 @@ def select_features(df):
 
     print(f"   Features : {features}")
     print(f"   Target   : {target}")
-    print(f"\n   Class distribution:")
+    print("\n   Class distribution:")
     print(df_s1[target].value_counts().sort_index())
 
     return df_s1

@@ -2,7 +2,6 @@ import os
 import json
 import boto3
 import pandas as pd
-import numpy as np
 from io import StringIO
 
 # ============================================================
@@ -166,7 +165,7 @@ s3.put_object(
 )
 
 print(f"\n{'='*60}")
-print(f"✅ SCÉNARIO 3 IGD TERMINÉ")
+print("✅ SCÉNARIO 3 IGD TERMINÉ")
 print(f"{'='*60}")
 print(f"  Total        : {len(results)}")
 print(f"  🔴 Critique  : {critique}")

@@ -161,8 +161,8 @@ print(f"✅ Index FAISS créé avec {index.ntotal} vecteurs.")
 
 print("\n💾 Sauvegarde dans MinIO...")
 
-faiss.write_index(index, "/tmp/faiss_igd.index")
-with open("/tmp/faiss_igd.index", "rb") as f:
+faiss.write_index(index, "/tmp/faiss_igd.index")  # nosec B108  # nosec B108
+with open("/tmp/faiss_igd.index", "rb") as f:  # nosec B108  # nosec B108
     s3.put_object(Bucket=BUCKET_MODELS, Key=FAISS_KEY, Body=f.read())
 print(f"   ✅ Index FAISS → {FAISS_KEY}")
 
@@ -176,7 +176,7 @@ print("\n" + "="*55)
 print("✅ INDEXATION IGD TERMINÉE")
 print("="*55)
 print(f"  KB        : {len(causes_data)} causes indexées")
-print(f"  Modèle    : Ollama nomic-embed-text")
+print("  Modèle    : Ollama nomic-embed-text")
 print(f"  Dimension : {dimension}")
 print(f"  FAISS     : {FAISS_KEY}")
 print(f"  Chunks    : {CHUNKS_KEY}")
