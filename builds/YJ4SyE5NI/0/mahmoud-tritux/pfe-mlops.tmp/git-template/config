@@ -1,0 +1,10 @@
+[init]
+	defaultBranch = none
+[fetch]
+	recurseSubmodules = false
+[credential]
+	interactive = never
+[gc]
+	autoDetach = false
+[include]
+	path = /home/pfe-01/Bureau/PFE-Projet---MLOps-workflow/builds/YJ4SyE5NI/0/mahmoud-tritux/pfe-mlops.tmp/.gitlab-runner.ext.conf
