@@ -109,6 +109,25 @@ def keep_most_recent(df):
     return df
 
 
+# def select_features(df):
+#     print("\n🎯 Selecting features for Scenario 1...")
+#     features = [
+#         "device_id",
+#         "downstream_curr_rate_kbps",
+#         "downstream_max_rate_kbps",
+#         "snr_margin_down_db",
+#         "attenuation_down_db",
+#         "crc_errors_total"
+#     ]
+#     target = "health_score"
+#     df_s1 = df[features + [target]]
+
+#     print(f"   Features : {features}")
+#     print(f"   Target   : {target}")
+#     print("\n   Class distribution:")
+#     print(df_s1[target].value_counts().sort_index())
+#     return df_s1
+
 def select_features(df):
     print("\n🎯 Selecting features for Scenario 1...")
     features = [
@@ -120,10 +139,13 @@ def select_features(df):
         "crc_errors_total"
     ]
     target = "health_score"
-    df_s1 = df[features + [target]]
+    metadata = ["city"]   # kept for dashboards, NOT a model feature
+
+    df_s1 = df[features + [target] + metadata]
 
     print(f"   Features : {features}")
     print(f"   Target   : {target}")
+    print(f"   Metadata : {metadata}")
     print("\n   Class distribution:")
     print(df_s1[target].value_counts().sort_index())
     return df_s1
