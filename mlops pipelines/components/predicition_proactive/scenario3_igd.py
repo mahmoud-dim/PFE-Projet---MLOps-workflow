@@ -109,6 +109,7 @@ for _, row in df.iterrows():
     niveau_risque = row["niveau_risque"]
     root_cause    = row["root_cause"]
     health_score  = row["health_score"]
+    city          = row["city"]
 
     jours = row["jours_avant_seuil"]
     if pd.isna(jours):
@@ -118,6 +119,7 @@ for _, row in df.iterrows():
 
     result = {
         "device_id":    device_id,
+        "city":         city,
         "health_score": int(health_score),
         "root_cause":   root_cause,
         "snr_evolution": {

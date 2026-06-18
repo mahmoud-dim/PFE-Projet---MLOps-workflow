@@ -110,6 +110,7 @@ for _, row in df.iterrows():
     root_cause    = row["root_cause"]
     health_score  = row["health_score"]
     vendor        = row["vendor"]
+    city          = row["city"]
 
     jours = row["jours_avant_seuil"]
     if pd.isna(jours):
@@ -120,6 +121,7 @@ for _, row in df.iterrows():
     result = {
         "device_id":    device_id,
         "vendor":       vendor,
+        "city":         city,
         "health_score": int(health_score),
         "root_cause":   root_cause,
         "rx_evolution": {
