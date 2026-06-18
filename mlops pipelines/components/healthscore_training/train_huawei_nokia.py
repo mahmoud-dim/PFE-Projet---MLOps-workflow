@@ -80,7 +80,10 @@ def save_model_to_minio(model):
     print("   ✅ Model saved successfully")
 
 
-def save_data_split_to_minio(X_train, X_test, y_train, y_test, device_id_train, device_id_test):
+# def save_data_split_to_minio(X_train, X_test, y_train, y_test, device_id_train, device_id_test):
+def save_data_split_to_minio(X_train, X_test, y_train, y_test,
+                             device_id_train, device_id_test,
+                             meta_train, meta_test):
     print("\n💾 Saving data split to MinIO...")
     print(f"   Bucket : {BUCKET_MODELS}")
     print(f"   Key    : {DATA_SPLIT_KEY}")
@@ -91,7 +94,9 @@ def save_data_split_to_minio(X_train, X_test, y_train, y_test, device_id_train, 
         'y_train':         y_train,
         'y_test':          y_test,
         'device_id_train': device_id_train,
-        'device_id_test':  device_id_test
+        'device_id_test':  device_id_test,
+        'meta_train':      meta_train,
+        'meta_test':       meta_test
     }
 
     buffer = BytesIO()
@@ -143,26 +148,62 @@ def save_train_info_to_minio(model, X_train):
 
 # ======================== FONCTIONS TRAINING ========================
 
+# def split_features_target(df):
+#     print("\n🎯 Splitting features and target...")
+
+#     device_ids = df['device_id'].copy()
+#     X = df.drop(['health_score', 'device_id'], axis=1)
+#     y = df['health_score']
+
+#     print(f"   Features shape: {X.shape}")
+#     print(f"   Target shape: {y.shape}")
+#     print("\n   Class distribution:")
+#     print(y.value_counts().sort_index())
+
+#     return X, y, device_ids
+
 def split_features_target(df):
     print("\n🎯 Splitting features and target...")
 
     device_ids = df['device_id'].copy()
-    X = df.drop(['health_score', 'device_id'], axis=1)
+    metadata = df[['vendor', 'city']].copy()   # kept aside, NOT features
+    X = df.drop(['health_score', 'device_id', 'vendor', 'city'], axis=1)
     y = df['health_score']
 
     print(f"   Features shape: {X.shape}")
+    print(f"   Feature columns: {list(X.columns)}")
     print(f"   Target shape: {y.shape}")
     print("\n   Class distribution:")
     print(y.value_counts().sort_index())
 
-    return X, y, device_ids
+    return X, y, device_ids, metadata
 
 
-def split_train_test(X, y, device_ids):
+# def split_train_test(X, y, device_ids):
+#     print(f"\n✂️ Splitting data (test_size={TEST_SIZE})...")
+
+#     X_train, X_test, y_train, y_test, device_id_train, device_id_test = train_test_split(
+#         X, y, device_ids,
+#         test_size    = TEST_SIZE,
+#         random_state = RANDOM_STATE,
+#         stratify     = y
+#     )
+
+#     print(f"   Training set: {X_train.shape[0]} samples")
+#     print(f"   Test set: {X_test.shape[0]} samples")
+#     print("\n   Train distribution:")
+#     print(y_train.value_counts().sort_index())
+#     print("\n   Test distribution:")
+#     print(y_test.value_counts().sort_index())
+
+#     return X_train, X_test, y_train, y_test, device_id_train, device_id_test
+def split_train_test(X, y, device_ids, metadata):
     print(f"\n✂️ Splitting data (test_size={TEST_SIZE})...")
 
-    X_train, X_test, y_train, y_test, device_id_train, device_id_test = train_test_split(
-        X, y, device_ids,
+    (X_train, X_test, y_train, y_test,
+     device_id_train, device_id_test,
+     meta_train, meta_test) = train_test_split(
+        X, y, device_ids, metadata,
         test_size    = TEST_SIZE,
         random_state = RANDOM_STATE,
         stratify     = y
@@ -175,7 +216,8 @@ def split_train_test(X, y, device_ids):
     print("\n   Test distribution:")
     print(y_test.value_counts().sort_index())
 
-    return X_train, X_test, y_train, y_test, device_id_train, device_id_test
+    return (X_train, X_test, y_train, y_test,
+            device_id_train, device_id_test, meta_train, meta_test)
 
 
 def train_random_forest(X_train, y_train):
@@ -217,11 +259,18 @@ def main():
     print("="*60)
 
     df = load_processed_data_from_minio()
-    X, y, device_ids = split_features_target(df)
-    X_train, X_test, y_train, y_test, device_id_train, device_id_test = split_train_test(X, y, device_ids)
+    # X, y, device_ids = split_features_target(df)
+    # X_train, X_test, y_train, y_test, device_id_train, device_id_test = split_train_test(X, y, device_ids)
+    X, y, device_ids, metadata = split_features_target(df)
+    (X_train, X_test, y_train, y_test,
+     device_id_train, device_id_test,
+     meta_train, meta_test) = split_train_test(X, y, device_ids, metadata)
     model = train_random_forest(X_train, y_train)
     save_model_to_minio(model)
-    save_data_split_to_minio(X_train, X_test, y_train, y_test, device_id_train, device_id_test)
+    # save_data_split_to_minio(X_train, X_test, y_train, y_test, device_id_train, device_id_test)
+    save_data_split_to_minio(X_train, X_test, y_train, y_test,
+                             device_id_train, device_id_test,
+                             meta_train, meta_test)
     save_train_info_to_minio(model, X_train)
 
     print("\n" + "="*60)
