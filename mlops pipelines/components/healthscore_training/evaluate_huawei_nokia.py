@@ -18,16 +18,12 @@ import seaborn as sns
 # Output : MinIO → results/scenario1/huawei_nokia_*.json / *.png
 # ============================================================
 
-# MINIO_ENDPOINT   = os.getenv("MINIO_ENDPOINT",   "http://minio-service.kubeflow:9000")
 MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "http://10.98.20.211:9000")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "minio")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minio123")
 BUCKET_MODELS    = "models"
 BUCKET_RESULTS   = "results"
 
-# MODEL_KEY      = "huawei_nokia_healthscore.pkl"
-# DATA_SPLIT_KEY = "huawei_nokia_data_split.pkl"
-# TRAIN_INFO_KEY = "huawei_nokia_train_info.json"
 MODEL_KEY      = "scenario1/huawei_nokia_healthscore.pkl"
 DATA_SPLIT_KEY = "scenario1/huawei_nokia_data_split.pkl"
 TRAIN_INFO_KEY = "scenario1/huawei_nokia_train_info.json"
@@ -51,19 +47,20 @@ s3 = boto3.client(
 def load_model_from_minio():
     print(f"📥 Loading model from MinIO... Key: {MODEL_KEY}")
     response = s3.get_object(Bucket=BUCKET_MODELS, Key=MODEL_KEY)
-    model    = pickle.loads(response["Body"].read())  # nosec B301  # nosec B301
+    model    = pickle.loads(response["Body"].read())  # nosec B301
     print("✅ Model loaded successfully")
     return model
 
 def load_data_split_from_minio():
     print(f"📥 Loading data split from MinIO... Key: {DATA_SPLIT_KEY}")
     response   = s3.get_object(Bucket=BUCKET_MODELS, Key=DATA_SPLIT_KEY)
-    data_split = pickle.loads(response["Body"].read())  # nosec B301  # nosec B301
+    data_split = pickle.loads(response["Body"].read())  # nosec B301
     X_train, X_test   = data_split['X_train'], data_split['X_test']
     y_train, y_test   = data_split['y_train'], data_split['y_test']
     did_train, did_test = data_split['device_id_train'], data_split['device_id_test']
+    meta_train, meta_test = data_split['meta_train'], data_split['meta_test']
     print(f"✅ Data loaded: Train={X_train.shape[0]}, Test={X_test.shape[0]}")
-    return X_train, X_test, y_train, y_test, did_train, did_test
+    return X_train, X_test, y_train, y_test, did_train, did_test, meta_train, meta_test
 
 def load_train_info_from_minio():
     print(f"📥 Loading training info from MinIO... Key: {TRAIN_INFO_KEY}")
@@ -130,6 +127,23 @@ def evaluate_model(model, X_train, X_test, y_train, y_test):
     }
     return metrics, cm, report_str
 
+def evaluate_per_vendor(model, X_test, y_test, meta_test):
+    print("\n📊 Per-vendor evaluation (Huawei vs Nokia)...")
+    y_pred  = model.predict(X_test)
+    y_true  = np.array(y_test)
+    vendors = np.array(meta_test['vendor'])
+    per_vendor = {}
+    for v in ['HUAWEI', 'NOKIA']:
+        mask = vendors == v
+        n = int(mask.sum())
+        if n == 0:
+            continue
+        acc = accuracy_score(y_true[mask], y_pred[mask])
+        f1m = f1_score(y_true[mask], y_pred[mask], average='macro', zero_division=0)
+        per_vendor[v] = {'n_test': n, 'accuracy': float(acc), 'f1_macro': float(f1m)}
+        print(f"   {v}: n={n}  acc={acc:.4f}  f1={f1m:.4f}")
+    return per_vendor
+
 def check_gatekeeping(metrics):
     print("\n" + "="*75)
     print("🚪 GATEKEEPING - Model Validation")
@@ -154,7 +168,7 @@ def check_gatekeeping(metrics):
         exit(1)
     return passed
 
-def compute_decision_metrics(model, X, device_ids):
+def compute_decision_metrics(model, X, device_ids, metadata):
     print("\n🏭 Generating operational scoring...")
     class_map     = {0: 'optimal', 1: 'degraded', 2: 'critical'}
     probabilities = model.predict_proba(X)
@@ -163,6 +177,8 @@ def compute_decision_metrics(model, X, device_ids):
 
     for i, (proba, pred_class) in enumerate(zip(probabilities, predictions)):
         device_id  = str(list(device_ids)[i])
+        vendor     = str(metadata.iloc[i]['vendor'])
+        city       = str(metadata.iloc[i]['city'])
         p_opt, p_deg, p_crit = float(proba[0]), float(proba[1]), float(proba[2])
         confidence   = round(float(np.max(proba)), 3)
         health_score = round(1.0*p_opt + 0.5*p_deg + 0.0*p_crit, 3)
@@ -174,6 +190,8 @@ def compute_decision_metrics(model, X, device_ids):
 
         results.append({
             "device_id": device_id,
+            "vendor": vendor,
+            "city": city,
             "prediction": {
                 "predicted_class": class_map[int(pred_class)],
                 "class_probabilities": {"optimal": round(p_opt,3), "degraded": round(p_deg,3), "critical": round(p_crit,3)},
@@ -206,10 +224,11 @@ def main():
     print("="*75)
 
     model      = load_model_from_minio()
-    X_train, X_test, y_train, y_test, did_train, did_test = load_data_split_from_minio()
+    X_train, X_test, y_train, y_test, did_train, did_test, meta_train, meta_test = load_data_split_from_minio()
     train_info = load_train_info_from_minio()
 
     metrics, cm, report = evaluate_model(model, X_train, X_test, y_train, y_test)
+    metrics['per_vendor'] = evaluate_per_vendor(model, X_test, y_test, meta_test)
 
     print("\n💾 Saving results to MinIO...")
     save_to_minio(METRICS_KEY,  json.dumps(metrics, indent=2).encode("utf-8"))
@@ -218,7 +237,7 @@ def main():
 
     passed = check_gatekeeping(metrics)
 
-    operational = compute_decision_metrics(model, X_test, did_test)
+    operational = compute_decision_metrics(model, X_test, did_test, meta_test)
     print("\n📋 Sample (first 3):")
     for s in operational[:3]:
         print(json.dumps(s, indent=2))
