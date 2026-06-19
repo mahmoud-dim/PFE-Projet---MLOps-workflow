@@ -20,6 +20,7 @@ import time
 import boto3
 import logging
 from io import BytesIO
+from collections import defaultdict
 from prometheus_client import start_http_server, Gauge, Counter, Info
 
 # ─────────────────────────────────────────────
@@ -136,6 +137,56 @@ hn_total_devices  = Gauge("ml_total_devices_hn",  "Total HN devices monitored")
 igd_total_devices = Gauge("ml_total_devices_igd", "Total IGD devices monitored")
 
 
+# ═════════════════════════════════════════════
+# NEW LABELED METRICS (vendor / city / city+vendor)
+# Additive only — existing metrics above are untouched
+# ═════════════════════════════════════════════
+
+# ── Scenario 1 : box distribution, labeled ──
+hn_boxes_by_vendor = Gauge("ml_boxes_hn_by_vendor",
+    "HN box count by predicted class and vendor", ["vendor", "predicted_class"])
+hn_boxes_by_city = Gauge("ml_boxes_hn_by_city",
+    "HN box count by predicted class and city", ["city", "predicted_class"])
+hn_boxes_by_city_vendor = Gauge("ml_boxes_hn_by_city_vendor",
+    "HN box count by predicted class, city and vendor", ["city", "vendor", "predicted_class"])
+igd_boxes_by_city = Gauge("ml_boxes_igd_by_city",
+    "IGD box count by predicted class and city", ["city", "predicted_class"])
+
+# ── Scenario 1 : per-vendor accuracy / F1 (HN) ──
+hn_accuracy_by_vendor = Gauge("ml_accuracy_hn_by_vendor",
+    "HN accuracy by vendor", ["vendor"])
+hn_f1_by_vendor = Gauge("ml_f1_score_hn_by_vendor",
+    "HN F1-macro by vendor", ["vendor"])
+
+# ── Scenario 3 : risk levels, labeled ──
+hn_risk_by_vendor = Gauge("ml_risk_hn_by_vendor",
+    "HN device count by risk level and vendor", ["vendor", "niveau_risque"])
+hn_risk_by_city = Gauge("ml_risk_hn_by_city",
+    "HN device count by risk level and city", ["city", "niveau_risque"])
+hn_risk_by_city_vendor = Gauge("ml_risk_hn_by_city_vendor",
+    "HN device count by risk level, city and vendor", ["city", "vendor", "niveau_risque"])
+igd_risk_by_city = Gauge("ml_risk_igd_by_city",
+    "IGD device count by risk level and city", ["city", "niveau_risque"])
+
+# ── Scenario 3 : urgent devices (≤7 days), labeled ──
+hn_urgent_by_vendor = Gauge("ml_urgent_devices_hn_by_vendor",
+    "HN urgent devices (≤7d) by vendor", ["vendor"])
+hn_urgent_by_city = Gauge("ml_urgent_devices_hn_by_city",
+    "HN urgent devices (≤7d) by city", ["city"])
+hn_urgent_by_city_vendor = Gauge("ml_urgent_devices_hn_by_city_vendor",
+    "HN urgent devices (≤7d) by city and vendor", ["city", "vendor"])
+igd_urgent_by_city = Gauge("ml_urgent_devices_igd_by_city",
+    "IGD urgent devices (≤7d) by city", ["city"])
+
+# ── Scenario 3 : avg slope, labeled ──
+hn_avg_slope_by_vendor = Gauge("ml_avg_slope_hn_by_vendor",
+    "HN average slope by vendor", ["vendor"])
+hn_avg_slope_by_city = Gauge("ml_avg_slope_hn_by_city",
+    "HN average slope by city", ["city"])
+igd_avg_slope_by_city = Gauge("ml_avg_slope_igd_by_city",
+    "IGD average slope by city", ["city"])
+
+
 # ─────────────────────────────────────────────
 # FUNCTIONS — Load from MinIO
 # ─────────────────────────────────────────────
@@ -171,6 +222,11 @@ def update_scenario1_metrics():
         hn_retraining_trigger.set(1 if trigger else 0)
         log.info(f"  HN → Accuracy={acc:.4f}, F1={f1:.4f}, Gap={gap:.4f}")
 
+        # ── per-vendor accuracy / F1 ──
+        for v, m in hn_metrics.get("per_vendor", {}).items():
+            hn_accuracy_by_vendor.labels(vendor=v).set(m["accuracy"])
+            hn_f1_by_vendor.labels(vendor=v).set(m["f1_macro"])
+
     # ── HN Operational Predictions ──
     hn_preds = load_json_from_minio(BUCKET_RESULTS, "scenario1/huawei_nokia_operational_predictions.json")
     if hn_preds:
@@ -181,6 +237,24 @@ def update_scenario1_metrics():
         hn_boxes_degraded.set(degraded)
         hn_boxes_critical.set(critical)
         log.info(f"  HN boxes → Optimal={optimal}, Degraded={degraded}, Critical={critical}")
+
+        # ── labeled breakdowns (vendor / city / city+vendor) ──
+        by_v  = defaultdict(int)
+        by_c  = defaultdict(int)
+        by_cv = defaultdict(int)
+        for p in hn_preds:
+            cls = p["prediction"]["predicted_class"]
+            v   = p.get("vendor", "UNKNOWN")
+            c   = p.get("city", "UNKNOWN")
+            by_v[(v, cls)]     += 1
+            by_c[(c, cls)]     += 1
+            by_cv[(c, v, cls)] += 1
+        for (v, cls), n in by_v.items():
+            hn_boxes_by_vendor.labels(vendor=v, predicted_class=cls).set(n)
+        for (c, cls), n in by_c.items():
+            hn_boxes_by_city.labels(city=c, predicted_class=cls).set(n)
+        for (c, v, cls), n in by_cv.items():
+            hn_boxes_by_city_vendor.labels(city=c, vendor=v, predicted_class=cls).set(n)
 
     # ── IGD ──
     igd_metrics = load_json_from_minio(BUCKET_RESULTS, "scenario1/IGD_metrics.json")
@@ -209,6 +283,15 @@ def update_scenario1_metrics():
         igd_boxes_degraded.set(degraded)
         igd_boxes_critical.set(critical)
         log.info(f"  IGD boxes → Optimal={optimal}, Degraded={degraded}, Critical={critical}")
+
+        # ── IGD labeled by city ──
+        igd_by_c = defaultdict(int)
+        for p in igd_preds:
+            cls = p["prediction"]["predicted_class"]
+            c   = p.get("city", "UNKNOWN")
+            igd_by_c[(c, cls)] += 1
+        for (c, cls), n in igd_by_c.items():
+            igd_boxes_by_city.labels(city=c, predicted_class=cls).set(n)
 
 
 def update_scenario2_metrics():
@@ -297,6 +380,38 @@ def update_scenario3_metrics():
         hn_total_devices.set(len(hn_s3))
         log.info(f"  HN S3 → Critique={counts['critique']}, Élevé={counts['eleve']}, Urgent={urgent}")
 
+        # ── labeled risk / urgent / slope (vendor / city / city+vendor) ──
+        r_v  = defaultdict(int); r_c = defaultdict(int); r_cv = defaultdict(int)
+        u_v  = defaultdict(int); u_c = defaultdict(int); u_cv = defaultdict(int)
+        s_v  = defaultdict(list); s_c = defaultdict(list)
+        for d in hn_s3:
+            niveau = d["prediction"]["niveau_risque"]
+            slope  = d["prediction"]["slope"]
+            jours  = d["prediction"]["jours_avant_seuil"]
+            v = d.get("vendor", "UNKNOWN"); c = d.get("city", "UNKNOWN")
+            r_v[(v, niveau)]     += 1
+            r_c[(c, niveau)]     += 1
+            r_cv[(c, v, niveau)] += 1
+            s_v[v].append(slope); s_c[c].append(slope)
+            if jours is not None and jours <= 7:
+                u_v[v] += 1; u_c[c] += 1; u_cv[(c, v)] += 1
+        for (v, lv), n in r_v.items():
+            hn_risk_by_vendor.labels(vendor=v, niveau_risque=lv).set(n)
+        for (c, lv), n in r_c.items():
+            hn_risk_by_city.labels(city=c, niveau_risque=lv).set(n)
+        for (c, v, lv), n in r_cv.items():
+            hn_risk_by_city_vendor.labels(city=c, vendor=v, niveau_risque=lv).set(n)
+        for v, n in u_v.items():
+            hn_urgent_by_vendor.labels(vendor=v).set(n)
+        for c, n in u_c.items():
+            hn_urgent_by_city.labels(city=c).set(n)
+        for (c, v), n in u_cv.items():
+            hn_urgent_by_city_vendor.labels(city=c, vendor=v).set(n)
+        for v, sl in s_v.items():
+            hn_avg_slope_by_vendor.labels(vendor=v).set(sum(sl)/len(sl) if sl else 0)
+        for c, sl in s_c.items():
+            hn_avg_slope_by_city.labels(city=c).set(sum(sl)/len(sl) if sl else 0)
+
     # ── IGD Proactive Prediction ──
     igd_s3 = load_json_from_minio(BUCKET_RESULTS, "scenario3/diagnostic_results_scenario3_igd.json")
     if igd_s3:
@@ -321,6 +436,24 @@ def update_scenario3_metrics():
         igd_urgent_devices.set(urgent)
         igd_total_devices.set(len(igd_s3))
         log.info(f"  IGD S3 → Critique={counts['critique']}, Élevé={counts['eleve']}, Urgent={urgent}")
+
+        # ── IGD labeled by city ──
+        ir_c = defaultdict(int); iu_c = defaultdict(int); is_c = defaultdict(list)
+        for d in igd_s3:
+            niveau = d["prediction"]["niveau_risque"]
+            slope  = d["prediction"]["slope"]
+            jours  = d["prediction"]["jours_avant_seuil"]
+            c = d.get("city", "UNKNOWN")
+            ir_c[(c, niveau)] += 1
+            is_c[c].append(slope)
+            if jours is not None and jours <= 7:
+                iu_c[c] += 1
+        for (c, lv), n in ir_c.items():
+            igd_risk_by_city.labels(city=c, niveau_risque=lv).set(n)
+        for c, n in iu_c.items():
+            igd_urgent_by_city.labels(city=c).set(n)
+        for c, sl in is_c.items():
+            igd_avg_slope_by_city.labels(city=c).set(sum(sl)/len(sl) if sl else 0)
 
 
 def update_all_metrics():
@@ -352,14 +485,11 @@ if __name__ == "__main__":
     log.info(f"   Port     : {EXPORTER_PORT}")
     log.info(f"   Interval : {SCRAPE_INTERVAL}s")
 
-    # Start HTTP server for Prometheus scraping
     start_http_server(EXPORTER_PORT)
     log.info(f"✅ Exporter running on http://localhost:{EXPORTER_PORT}/metrics")
 
-    # Initial load
     update_all_metrics()
 
-    # Continuous update loop
     while True:
         time.sleep(SCRAPE_INTERVAL)
         update_all_metrics()
