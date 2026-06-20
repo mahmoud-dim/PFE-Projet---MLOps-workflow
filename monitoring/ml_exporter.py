@@ -186,6 +186,16 @@ hn_avg_slope_by_city = Gauge("ml_avg_slope_hn_by_city",
 igd_avg_slope_by_city = Gauge("ml_avg_slope_igd_by_city",
     "IGD average slope by city", ["city"])
 
+# ── Full-population box distribution (from Scenario 3 health_score) ──
+hn_boxes_full_by_vendor = Gauge("ml_boxes_full_hn_by_vendor",
+    "HN full-population box count by health state and vendor", ["vendor", "health_state"])
+hn_boxes_full_by_city = Gauge("ml_boxes_full_hn_by_city",
+    "HN full-population box count by health state and city", ["city", "health_state"])
+hn_boxes_full_by_city_vendor = Gauge("ml_boxes_full_hn_by_city_vendor",
+    "HN full-population box count by health state, city and vendor", ["city", "vendor", "health_state"])
+igd_boxes_full_by_city = Gauge("ml_boxes_full_igd_by_city",
+    "IGD full-population box count by health state and city", ["city", "health_state"])
+
 
 # ─────────────────────────────────────────────
 # FUNCTIONS — Load from MinIO
@@ -412,6 +422,22 @@ def update_scenario3_metrics():
         for c, sl in s_c.items():
             hn_avg_slope_by_city.labels(city=c).set(sum(sl)/len(sl) if sl else 0)
 
+        # ── full-population box distribution from health_score ──
+        hstate = {0: "optimal", 1: "degraded", 2: "critical"}
+        fb_v = defaultdict(int); fb_c = defaultdict(int); fb_cv = defaultdict(int)
+        for d in hn_s3:
+            st = hstate.get(int(d.get("health_score", -1)), "unknown")
+            v = d.get("vendor", "UNKNOWN"); c = d.get("city", "UNKNOWN")
+            fb_v[(v, st)] += 1
+            fb_c[(c, st)] += 1
+            fb_cv[(c, v, st)] += 1
+        for (v, st), n in fb_v.items():
+            hn_boxes_full_by_vendor.labels(vendor=v, health_state=st).set(n)
+        for (c, st), n in fb_c.items():
+            hn_boxes_full_by_city.labels(city=c, health_state=st).set(n)
+        for (c, v, st), n in fb_cv.items():
+            hn_boxes_full_by_city_vendor.labels(city=c, vendor=v, health_state=st).set(n)
+
     # ── IGD Proactive Prediction ──
     igd_s3 = load_json_from_minio(BUCKET_RESULTS, "scenario3/diagnostic_results_scenario3_igd.json")
     if igd_s3:
@@ -454,6 +480,16 @@ def update_scenario3_metrics():
             igd_urgent_by_city.labels(city=c).set(n)
         for c, sl in is_c.items():
             igd_avg_slope_by_city.labels(city=c).set(sum(sl)/len(sl) if sl else 0)
+
+        # ── full-population box distribution from health_score ──
+        hstate = {0: "optimal", 1: "degraded", 2: "critical"}
+        ifb_c = defaultdict(int)
+        for d in igd_s3:
+            st = hstate.get(int(d.get("health_score", -1)), "unknown")
+            c = d.get("city", "UNKNOWN")
+            ifb_c[(c, st)] += 1
+        for (c, st), n in ifb_c.items():
+            igd_boxes_full_by_city.labels(city=c, health_state=st).set(n)
 
 
 def update_all_metrics():
