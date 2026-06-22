@@ -6,4 +6,6 @@ COPY preprocess_huawei_nokia.py .
 COPY preprocess_igd.py .
 COPY preprocess_hn_scenario3.py .
 COPY preprocess_igd_scenario3.py .
+RUN useradd --create-home appuser
+USER appuser
 CMD ["python", "preprocess_huawei_nokia.py"]

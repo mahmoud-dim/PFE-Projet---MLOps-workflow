@@ -6,4 +6,6 @@ COPY main_hn.py .
 COPY main_igd.py .
 COPY faiss_index/build_faiss_index_hn.py .
 COPY faiss_index/build_faiss_index_igd.py .
+RUN useradd --create-home appuser
+USER appuser
 CMD ["python", "main_hn.py"]
