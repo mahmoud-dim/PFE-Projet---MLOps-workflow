@@ -88,13 +88,36 @@ model = load_model()
 # ─────────────────────────────────────────────
 # Decision logic (same as evaluate_*.py)
 # ─────────────────────────────────────────────
+def derive_decision(p_deg, p_crit, risk_score):
+    if risk_score < 0.3:
+        risk_level = "low"
+    elif risk_score < 0.6:
+        risk_level = "medium"
+    else:
+        risk_level = "high"
+
+    if p_crit > 0.7:
+        recommended_action = "dispatch_technician"
+    elif p_deg > 0.7:
+        recommended_action = "monitor"
+    else:
+        recommended_action = "no_action"
+
+    if risk_score > 0.8:
+        priority_level = 1
+    elif risk_score > 0.5:
+        priority_level = 2
+    else:
+        priority_level = 3
+
+    return risk_level, recommended_action, priority_level
 
 def build_diagnostic(features_row: Dict[str, Any]) -> Dict[str, Any]:
     # order features exactly as trained
     try:
         x = np.array([[float(features_row[f]) for f in FEATURES]])
     except KeyError as e:
-        raise HTTPException(status_code=400, detail=f"Missing feature: {e}")
+        raise HTTPException(status_code=400, detail=f"Missing feature: {e}") from e
 
     proba = model.predict_proba(x)[0]
     pred  = int(model.predict(x)[0])
@@ -103,10 +126,7 @@ def build_diagnostic(features_row: Dict[str, Any]) -> Dict[str, Any]:
     confidence   = round(float(np.max(proba)), 3)
     health_score = round(1.0*p_opt + 0.5*p_deg + 0.0*p_crit, 3)
     risk_score   = round(1.0 - health_score, 3)
-    risk_level   = "low" if risk_score < 0.3 else "medium" if risk_score < 0.6 else "high"
-    recommended_action = ("dispatch_technician" if p_crit > 0.7
-                          else "monitor" if p_deg > 0.7 else "no_action")
-    priority_level = 1 if risk_score > 0.8 else 2 if risk_score > 0.5 else 3
+    risk_level, recommended_action, priority_level = derive_decision(p_deg, p_crit, risk_score)
 
     return {
         "model_version": MODEL_VERSION,
@@ -147,7 +167,7 @@ def model_ready(name: str):
 def health():
     return {"status": "ok", "model": MODEL_NAME, "version": MODEL_VERSION, "features": FEATURES}
 
-@app.post("/v1/models/{name}:predict")
+@app.post("/v1/models/{name}:predict", responses={400: {"description": "Invalid request"}})
 def predict(name: str, req: PredictRequest):
     if not req.instances:
         raise HTTPException(status_code=400, detail="No instances provided")
