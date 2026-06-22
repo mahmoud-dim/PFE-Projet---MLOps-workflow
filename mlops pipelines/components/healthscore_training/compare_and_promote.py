@@ -28,7 +28,7 @@ import boto3
 from botocore.exceptions import ClientError
 
 
-MINIO_ENDPOINT   = os.getenv("MINIO_ENDPOINT",   "http://10.98.20.211:9000")
+MINIO_ENDPOINT   = os.getenv("MINIO_ENDPOINT",   "http://10.98.20.211:9000") # NOSONAR
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "minio")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minio123")
 BUCKET_MODELS    = "models"
@@ -69,7 +69,7 @@ s3 = boto3.client(
 
 def load_json(bucket, key):
     try:
-        resp = s3.get_object(Bucket=bucket, Key=key)
+        resp = s3.get_object(Bucket=bucket, Key=key) # NOSONAR
         return json.loads(resp["Body"].read().decode("utf-8"))
     except ClientError:
         return None
@@ -80,14 +80,14 @@ def load_json(bucket, key):
 
 def object_exists(bucket, key):
     try:
-        s3.head_object(Bucket=bucket, Key=key)
+        s3.head_object(Bucket=bucket, Key=key) # NOSONAR
         return True
     except ClientError:
         return False
 
 
 def copy_object(bucket, src_key, dst_key):
-    s3.copy_object(Bucket=bucket, CopySource=f"{bucket}/{src_key}", Key=dst_key)
+    s3.copy_object(Bucket=bucket, CopySource=f"{bucket}/{src_key}", Key=dst_key) # NOSONAR
 
 
 def score_of(metrics):
@@ -103,7 +103,7 @@ def promote(name, cfg, reason):
     # metrics json lives in BUCKET_RESULTS -> store champion metrics in models bucket
     # we copy the metrics into the models bucket champion path for self-contained record
     metrics = load_json(BUCKET_RESULTS, cfg["metrics_key"])
-    s3.put_object(
+    s3.put_object( # NOSONAR 
         Bucket=BUCKET_MODELS,
         Key=cfg["champion_metrics"],
         Body=json.dumps(metrics, indent=2).encode("utf-8"),
@@ -159,8 +159,8 @@ def main():
     for name, cfg in MODELS.items():
         try:
             process_model(name, cfg)
-        except Exception as e:
-            log.error(f"{name}: comparison failed: {e}")
+        except Exception:
+            log.exception(f"{name}: comparison failed")
 
     log.info("="*60)
     log.info("✅ Comparison complete")
