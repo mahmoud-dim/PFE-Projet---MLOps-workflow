@@ -76,7 +76,7 @@ s3 = boto3.client(
 
 def load_model():
     log.info(f"Loading champion model '{MODEL_NAME}' from {CFG['model_key']} ...")
-    resp = s3.get_object(Bucket=BUCKET_MODELS, Key=CFG["model_key"]) # nosec B301 NOSONAR
+    resp = s3.get_object(Bucket=BUCKET_MODELS, Key=CFG["model_key"])  # nosec B301  # NOSONAR
     model = pickle.loads(resp["Body"].read())  # nosec B301
     log.info("✅ Model loaded.")
     return model
@@ -174,4 +174,4 @@ def predict(name: str, req: PredictRequest):
 
 if __name__ == "__main__":
     log.info(f"🚀 Starting predictor for '{MODEL_NAME}' on port {PORT}")
-    uvicorn.run(app, host="0.0.0.0", port=PORT)  # nosec B104 NOSONAR
+    uvicorn.run(app, host="0.0.0.0", port=PORT)  # nosec B104  # NOSONAR
