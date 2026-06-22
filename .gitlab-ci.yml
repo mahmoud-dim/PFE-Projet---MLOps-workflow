@@ -38,7 +38,7 @@ pytest:
     - pip install pandas numpy scikit-learn --user
     - pytest "mlops pipelines/tests/"
       --junitxml=pytest-report.xml
-      --cov="mlops pipelines/tests"
+      --cov="mlops pipelines/components"
       --cov-report=xml:coverage.xml
       --cov-report=term-missing
   artifacts:
