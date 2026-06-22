@@ -1,0 +1,30 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: healthscore-igd
+  namespace: kubeflow
+spec:
+  predictor:
+    containers:
+      - name: kserve-container
+        image: localhost:5000/kserve-predictor:v1
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: MODEL_NAME
+            value: "igd"
+          - name: MINIO_ENDPOINT
+            value: "http://minio-service.kubeflow:9000"
+          - name: MINIO_ACCESS_KEY
+            value: "minio"
+          - name: MINIO_SECRET_KEY
+            value: "minio123"
+        ports:
+          - containerPort: 8080
+            protocol: TCP
+        resources:
+          requests:
+            cpu: "100m"
+            memory: 256Mi
+          limits:
+            cpu: "500m"
+            memory: 512Mi

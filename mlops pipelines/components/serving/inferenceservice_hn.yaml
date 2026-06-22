@@ -1,0 +1,29 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: healthscore-hn
+  namespace: kubeflow
+spec:
+  predictor:
+    containers:
+      - name: kserve-container
+        image: localhost:5000/kserve-predictor:v2
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: MODEL_NAME
+            value: "hn"
+          - name: MODEL_VERSION
+            value: "v2"
+          - name: MINIO_ENDPOINT
+            value: "http://minio-service.kubeflow:9000"
+          - name: MINIO_ACCESS_KEY
+            value: "minio"
+          - name: MINIO_SECRET_KEY
+            value: "minio123"
+        ports:
+          - containerPort: 8080
+            protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 2Gi
