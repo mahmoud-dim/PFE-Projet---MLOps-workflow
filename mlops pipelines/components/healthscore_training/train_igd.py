@@ -16,7 +16,7 @@ from sklearn.ensemble import RandomForestClassifier
 #                  models/IGD_train_info.json
 # ============================================================
 
-# MINIO_ENDPOINT   = os.getenv("MINIO_ENDPOINT",   "http://minio-service.kubeflow:9000")
+
 MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "http://10.98.20.211:9000")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "minio")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minio123")
@@ -24,9 +24,7 @@ BUCKET_DATASETS  = "datasets"
 BUCKET_MODELS    = "models"
 
 INPUT_KEY      = "processed/IGD_scenario_1.csv"
-# MODEL_KEY      = "IGD_healthscore.pkl"
-# DATA_SPLIT_KEY = "IGD_data_split.pkl"
-# TRAIN_INFO_KEY = "IGD_train_info.json"
+
 
 MODEL_KEY      = "scenario1/IGD_healthscore.pkl"
 DATA_SPLIT_KEY = "scenario1/IGD_data_split.pkl"
@@ -61,18 +59,7 @@ def save_model_to_minio(model):
     s3.put_object(Bucket=BUCKET_MODELS, Key=MODEL_KEY, Body=buffer.getvalue())
     print("   ✅ Model saved successfully")
 
-# def save_data_split_to_minio(X_train, X_test, y_train, y_test, device_id_train, device_id_test):
-#     print(f"\n💾 Saving data split to MinIO... Key: {DATA_SPLIT_KEY}")
-#     data_split = {
-#         'X_train': X_train, 'X_test': X_test,
-#         'y_train': y_train, 'y_test': y_test,
-#         'device_id_train': device_id_train, 'device_id_test': device_id_test
-#     }
-#     buffer = BytesIO()
-#     pickle.dump(data_split, buffer)
-#     buffer.seek(0)
-#     s3.put_object(Bucket=BUCKET_MODELS, Key=DATA_SPLIT_KEY, Body=buffer.getvalue())
-#     print("   ✅ Data split saved successfully")
+
 def save_data_split_to_minio(X_train, X_test, y_train, y_test,
                              device_id_train, device_id_test,
                              meta_train, meta_test):
@@ -113,14 +100,7 @@ def save_train_info_to_minio(model, X_train):
     for item in feature_importance:
         print(f"  {item['feature']:20s}: {item['importance']:.4f}")
 
-# def split_features_target(df):
-#     print("\n🎯 Splitting features and target...")
-#     device_ids = df['device_id'].copy()
-#     X = df.drop(['health_score', 'device_id'], axis=1)
-#     y = df['health_score']
-#     print(f"   Features shape: {X.shape}")
-#     print(f"   Class distribution:\n{y.value_counts().sort_index()}")
-#     return X, y, device_ids
+
 def split_features_target(df):
     print("\n🎯 Splitting features and target...")
     device_ids = df['device_id'].copy()
@@ -132,14 +112,7 @@ def split_features_target(df):
     print(f"   Class distribution:\n{y.value_counts().sort_index()}")
     return X, y, device_ids, metadata
 
-# def split_train_test(X, y, device_ids):
-#     print(f"\n✂️ Splitting data (test_size={TEST_SIZE})...")
-#     X_train, X_test, y_train, y_test, device_id_train, device_id_test = train_test_split(
-#         X, y, device_ids, test_size=TEST_SIZE, random_state=RANDOM_STATE, stratify=y
-#     )
-#     print(f"   Training set: {X_train.shape[0]} samples")
-#     print(f"   Test set: {X_test.shape[0]} samples")
-#     return X_train, X_test, y_train, y_test, device_id_train, device_id_test
+
 def split_train_test(X, y, device_ids, metadata):
     print(f"\n✂️ Splitting data (test_size={TEST_SIZE})...")
     (X_train, X_test, y_train, y_test,
@@ -172,15 +145,13 @@ def main():
     print("="*60)
 
     df = load_processed_data_from_minio()
-    # X, y, device_ids = split_features_target(df)
-    # X_train, X_test, y_train, y_test, device_id_train, device_id_test = split_train_test(X, y, device_ids)
     X, y, device_ids, metadata = split_features_target(df)
     (X_train, X_test, y_train, y_test,
      device_id_train, device_id_test,
      meta_train, meta_test) = split_train_test(X, y, device_ids, metadata)
     model = train_random_forest(X_train, y_train)
     save_model_to_minio(model)
-    # save_data_split_to_minio(X_train, X_test, y_train, y_test, device_id_train, device_id_test)
+    
     save_data_split_to_minio(X_train, X_test, y_train, y_test,
                              device_id_train, device_id_test,
                              meta_train, meta_test)

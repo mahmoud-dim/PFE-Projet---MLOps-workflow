@@ -27,9 +27,7 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 
-# ─────────────────────────────────────────────
-# Configuration
-# ─────────────────────────────────────────────
+
 MINIO_ENDPOINT   = os.getenv("MINIO_ENDPOINT",   "http://10.98.20.211:9000")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "minio")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minio123")
@@ -67,9 +65,7 @@ s3 = boto3.client(
 )
 
 
-# ─────────────────────────────────────────────
-# Helpers
-# ─────────────────────────────────────────────
+
 
 def load_json(bucket, key):
     try:

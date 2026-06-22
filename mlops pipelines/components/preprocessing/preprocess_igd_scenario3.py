@@ -38,7 +38,6 @@ print(f"✅ {len(df)} lignes, {df['device_id'].nunique()} équipements")
 
 # Étape 2 : Timestamp + colonnes nécessaires
 df["timestamp"] = pd.to_datetime(df["timestamp"])
-# df = df[["device_id", "timestamp", "snr_margin_down_db", "health_score", "root_cause"]]
 df = df[["device_id", "timestamp", "snr_margin_down_db", "health_score", "root_cause", "city"]]
 
 # Étape 3-4 : Trier + numéroter T1→T10
@@ -58,7 +57,6 @@ snr_pivot    = df.pivot(index="device_id", columns="t_index", values="snr_margin
 snr_pivot.columns = [f"snr_T{i}" for i in snr_pivot.columns]
 ts_pivot     = df.pivot(index="device_id", columns="t_index", values="timestamp")
 ts_pivot.columns = [f"timestamp_T{i}" for i in ts_pivot.columns]
-# last_measure = df[df["t_index"] == 10][["device_id", "health_score", "root_cause"]].set_index("device_id")
 last_measure = df[df["t_index"] == 10][["device_id", "health_score", "root_cause", "city"]].set_index("device_id") # added city column for scenario 3
 df_final     = pd.concat([snr_pivot, ts_pivot, last_measure], axis=1).reset_index()
 print(f"✅ {len(df_final)} équipements pivotés")

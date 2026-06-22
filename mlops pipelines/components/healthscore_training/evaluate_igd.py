@@ -155,6 +155,31 @@ def check_gatekeeping(metrics):
         exit(1)
     return passed
 
+def derive_decision(p_deg, p_crit, risk_score):
+    if risk_score < 0.3:
+        risk_level = "low"
+    elif risk_score < 0.6:
+        risk_level = "medium"
+    else:
+        risk_level = "high"
+
+    if p_crit > 0.7:
+        recommended_action = "dispatch_technician"
+    elif p_deg > 0.7:
+        recommended_action = "monitor"
+    else:
+        recommended_action = "no_action"
+
+    if risk_score > 0.8:
+        priority_level = 1
+    elif risk_score > 0.5:
+        priority_level = 2
+    else:
+        priority_level = 3
+
+    return risk_level, recommended_action, priority_level
+
+
 def compute_decision_metrics(model, X, device_ids, metadata):
     print("\n🏭 Generating operational scoring...")
     class_map     = {0: 'optimal', 1: 'degraded', 2: 'critical'}
@@ -170,9 +195,7 @@ def compute_decision_metrics(model, X, device_ids, metadata):
         health_score = round(1.0*p_opt + 0.5*p_deg + 0.0*p_crit, 3)
         risk_score   = round(1.0 - health_score, 3)
 
-        risk_level         = "low" if risk_score < 0.3 else "medium" if risk_score < 0.6 else "high"
-        recommended_action = "dispatch_technician" if p_crit > 0.7 else "monitor" if p_deg > 0.7 else "no_action"
-        priority_level     = 1 if risk_score > 0.8 else 2 if risk_score > 0.5 else 3
+        risk_level, recommended_action, priority_level = derive_decision(p_deg, p_crit, risk_score)
 
         results.append({
             "device_id": device_id,
@@ -193,7 +216,7 @@ def compute_decision_metrics(model, X, device_ids, metadata):
         })
 
     print(f"✅ Operational scoring generated for {len(results)} devices")
-    return results
+    return results 
 
 def save_confusion_matrix_to_minio(cm):
     class_names = ['Optimal\n(0)', 'Dégradé\n(1)', 'Critique\n(2)']
@@ -216,7 +239,7 @@ def main():
     print("="*75)
 
     model      = load_model_from_minio()
-    X_train, X_test, y_train, y_test, did_train, did_test, meta_train, meta_test = load_data_split_from_minio()
+    X_train, X_test, y_train, y_test, _, did_test, _, meta_test = load_data_split_from_minio()
     train_info = load_train_info_from_minio()
 
     print("\n📋 Model Info:")

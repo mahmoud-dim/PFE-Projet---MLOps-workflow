@@ -13,7 +13,7 @@ from io import StringIO
 # ----------------------------------------
 # Configuration MinIO
 # ----------------------------------------
-# MINIO_ENDPOINT   = os.getenv("MINIO_ENDPOINT",   "http://minio-service.kubeflow:9000")
+
 MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "http://10.98.20.211:9000")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "minio")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minio123")
@@ -112,26 +112,6 @@ def keep_most_recent(df):
     return df
 
 
-# def select_features(df):
-#     print("\n🎯 Selecting features for Scenario 1...")
-
-#     features = [
-#         "device_id",
-#         "temperature_c",
-#         "rx_power_dbm",
-#         "bias_current_ua",
-#         "supply_voltage_v"
-#     ]
-#     target = "health_score"
-
-#     df_s1 = df[features + [target]]
-
-#     print(f"   Features : {features}")
-#     print(f"   Target   : {target}")
-#     print("\n   Class distribution:")
-#     print(df_s1[target].value_counts().sort_index())
-
-#     return df_s1
 
 def select_features(df):
     print("\n🎯 Selecting features for Scenario 1...")
