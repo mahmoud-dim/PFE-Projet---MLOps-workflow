@@ -2,15 +2,12 @@
 retraining_watcher.py
 Auto-Retraining Watcher — MLOps GPON/DSL Diagnostic
 
-Watches model metrics in MinIO and automatically triggers the Kubeflow
-pipeline when a model degrades.
+Triggers the Kubeflow pipeline on ANY of three conditions:
+  1. New data        — a raw dataset in MinIO has a newer LastModified timestamp
+  2. Schedule        — 6 hours elapsed since the last run
+  3. Degradation     — Scenario 1 accuracy < 0.80 or degraded_recall < 0.55 (safety net)
 
-Trigger condition (per model HN / IGD):
-    trigger_retraining == true   (degraded_recall < 0.55)
-    OR  test accuracy < 0.80
-
-When triggered, launches the compiled Kubeflow pipeline via the KFP v2 client,
-then enters a cooldown so it does not relaunch every loop while metrics stay bad.
+A cooldown prevents double-firing.
 
 Usage (on the VM, with port-forward running):
     kubectl port-forward svc/ml-pipeline -n kubeflow 8888:8888 &
@@ -32,17 +29,24 @@ MINIO_ENDPOINT   = os.getenv("MINIO_ENDPOINT",   "http://10.98.20.211:9000")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "minio")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minio123")
 BUCKET_RESULTS   = "results"
+BUCKET_DATASETS  = "datasets"
 
 KFP_HOST         = os.getenv("KFP_HOST", "http://localhost:8888")
 PIPELINE_FILE    = os.getenv("PIPELINE_FILE", "mlops_diagnostic_pipeline.yaml")
 EXPERIMENT_NAME  = os.getenv("EXPERIMENT_NAME", "auto-retraining")
 
-POLL_INTERVAL    = int(os.getenv("POLL_INTERVAL", "60"))      # seconds between checks
-COOLDOWN         = int(os.getenv("COOLDOWN", "1800"))         # seconds to wait after a trigger (30 min)
-
+POLL_INTERVAL    = int(os.getenv("POLL_INTERVAL", "60"))       # seconds between checks
+COOLDOWN         = int(os.getenv("COOLDOWN", "1800"))          # 30 min after a trigger
+SCHEDULE_EVERY   = int(os.getenv("SCHEDULE_EVERY", "21600"))   # 6 hours, in seconds
 ACCURACY_FLOOR   = 0.80
 
-# metrics files to watch
+# raw datasets to watch for "new data arrived"
+DATASET_KEYS = {
+    "HN":  "raw/fibre_combined_realistic.csv",
+    "IGD": "raw/igd_realistic.csv",
+}
+
+# scenario-1 metrics to watch for degradation (safety net)
 METRICS_KEYS = {
     "HN":  "scenario1/huawei_nokia_metrics.json",
     "IGD": "scenario1/IGD_metrics.json",
@@ -63,8 +67,17 @@ s3 = boto3.client(
 # Helpers
 # ─────────────────────────────────────────────
 
+def get_last_modified(bucket, key):
+    """Return the LastModified timestamp of a MinIO object, or None."""
+    try:
+        resp = s3.head_object(Bucket=bucket, Key=key)
+        return resp["LastModified"].timestamp()
+    except Exception as e:
+        log.warning(f"Could not stat {bucket}/{key}: {e}")
+        return None
+
+
 def load_metrics(key):
-    """Load a metrics JSON from MinIO. Returns dict or None."""
     try:
         resp = s3.get_object(Bucket=BUCKET_RESULTS, Key=key)
         return json.loads(resp["Body"].read().decode("utf-8"))
@@ -73,32 +86,43 @@ def load_metrics(key):
         return None
 
 
-def check_model(name, metrics):
-    """Return (should_retrain: bool, reason: str) for one model."""
-    if not metrics:
-        return False, "metrics unavailable"
-
-    accuracy = metrics.get("test", {}).get("accuracy", 1.0)
-    trigger  = metrics.get("monitoring_kpi", {}).get("trigger_retraining", False)
-    recall   = metrics.get("monitoring_kpi", {}).get("degraded_recall", 1.0)
-
+def check_new_data(seen):
+    """Compare current dataset timestamps to last seen. Returns (changed, reasons, updated_seen)."""
     reasons = []
-    if trigger:
-        reasons.append(f"degraded_recall={recall:.3f} < 0.55")
-    if accuracy < ACCURACY_FLOOR:
-        reasons.append(f"accuracy={accuracy:.3f} < {ACCURACY_FLOOR}")
+    changed = False
+    for name, key in DATASET_KEYS.items():
+        ts = get_last_modified(BUCKET_DATASETS, key)
+        if ts is None:
+            continue
+        if name not in seen:
+            seen[name] = ts          # first observation, no trigger
+        elif ts > seen[name]:
+            reasons.append(f"{name}: new data in {key}")
+            seen[name] = ts
+            changed = True
+    return changed, reasons, seen
 
-    if reasons:
-        return True, f"{name}: " + " | ".join(reasons)
-    return False, f"{name}: healthy (acc={accuracy:.3f}, recall={recall:.3f})"
+
+def check_degradation():
+    """Safety-net: returns (needed, reasons) based on scenario-1 metrics."""
+    reasons = []
+    for name, key in METRICS_KEYS.items():
+        m = load_metrics(key)
+        if not m:
+            continue
+        acc = m.get("test", {}).get("accuracy", 1.0)
+        trig = m.get("monitoring_kpi", {}).get("trigger_retraining", False)
+        if acc < ACCURACY_FLOOR:
+            reasons.append(f"{name}: accuracy={acc:.3f} < {ACCURACY_FLOOR}")
+        if trig:
+            reasons.append(f"{name}: degraded_recall below threshold")
+    return (len(reasons) > 0), reasons
 
 
 def ensure_pipeline_file():
-    """Make sure the compiled pipeline YAML exists; compile it if missing."""
     if os.path.exists(PIPELINE_FILE):
         return
     log.info(f"{PIPELINE_FILE} not found — compiling from pipeline.py ...")
-    # import the pipeline function and compile
     import importlib.util
     spec = importlib.util.spec_from_file_location("pipeline_mod", "pipeline.py")
     mod = importlib.util.module_from_spec(spec)
@@ -111,16 +135,12 @@ def ensure_pipeline_file():
 
 
 def trigger_pipeline(reason):
-    """Launch the Kubeflow pipeline via KFP v2 client."""
     ensure_pipeline_file()
     client = Client(host=KFP_HOST)
-
-    # ensure experiment exists
     try:
         exp = client.get_experiment(experiment_name=EXPERIMENT_NAME)
     except Exception:
         exp = client.create_experiment(name=EXPERIMENT_NAME)
-
     run_name = f"auto-retrain-{time.strftime('%Y%m%d-%H%M%S')}"
     run = client.run_pipeline(
         experiment_id=exp.experiment_id,
@@ -139,43 +159,54 @@ def trigger_pipeline(reason):
 def main():
     log.info("="*60)
     log.info("🔁 Auto-Retraining Watcher started")
-    log.info(f"   MinIO        : {MINIO_ENDPOINT}")
-    log.info(f"   KFP host     : {KFP_HOST}")
-    log.info(f"   Poll every   : {POLL_INTERVAL}s")
-    log.info(f"   Cooldown     : {COOLDOWN}s after a trigger")
-    log.info(f"   Trigger if   : degraded_recall < 0.55  OR  accuracy < {ACCURACY_FLOOR}")
+    log.info(f"   Poll every     : {POLL_INTERVAL}s")
+    log.info(f"   Schedule every : {SCHEDULE_EVERY}s ({SCHEDULE_EVERY//3600}h)")
+    log.info(f"   Cooldown       : {COOLDOWN}s")
+    log.info("   Triggers       : new data | schedule | accuracy < 0.80")
     log.info("="*60)
 
+    seen_timestamps = {}
     last_trigger_time = 0.0
+    last_run_time = time.time()   # start the 6h clock now
+
+    # prime dataset timestamps so we don't fire on first loop
+    check_new_data(seen_timestamps)
 
     while True:
         now = time.time()
         in_cooldown = (now - last_trigger_time) < COOLDOWN
 
-        retrain_needed = False
         reasons = []
-        for name, key in METRICS_KEYS.items():
-            metrics = load_metrics(key)
-            should, reason = check_model(name, metrics)
-            log.info(f"  {reason}")
-            if should:
-                retrain_needed = True
-                reasons.append(reason)
 
-        if retrain_needed:
+        # 1. new data?
+        new_data, data_reasons, seen_timestamps = check_new_data(seen_timestamps)
+        if new_data:
+            reasons += data_reasons
+
+        # 2. schedule?
+        if (now - last_run_time) >= SCHEDULE_EVERY:
+            reasons.append(f"scheduled retrain ({SCHEDULE_EVERY//3600}h elapsed)")
+
+        # 3. degradation (safety net)?
+        degraded, deg_reasons = check_degradation()
+        if degraded:
+            reasons += deg_reasons
+
+        if reasons:
             if in_cooldown:
                 remaining = int(COOLDOWN - (now - last_trigger_time))
-                log.info(f"⏳ Retrain needed but in cooldown ({remaining}s left) — skipping.")
+                log.info(f"⏳ Trigger needed but in cooldown ({remaining}s left) — skipping.")
             else:
                 full_reason = " ; ".join(reasons)
                 log.warning(f"⚠️  RETRAIN TRIGGERED — {full_reason}")
                 try:
                     trigger_pipeline(full_reason)
                     last_trigger_time = time.time()
+                    last_run_time = time.time()
                 except Exception as e:
                     log.error(f"Failed to launch pipeline: {e}")
         else:
-            log.info("✅ All models healthy — no action.")
+            log.info("✅ No trigger (no new data, schedule not due, models healthy).")
 
         time.sleep(POLL_INTERVAL)
 
